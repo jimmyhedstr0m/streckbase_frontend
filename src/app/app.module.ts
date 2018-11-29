@@ -6,7 +6,8 @@ import localeSv from "@angular/common/locales/sv";
 
 import { PagesModule } from "./pages/pages.modules";
 
-import { CoreModule } from "./core/core.module";
+import { CoreModule } from "./core";
+import { SharedModule } from "./shared";
 
 import { AppComponent } from "./app.component";
 
@@ -20,6 +21,7 @@ registerLocaleData(localeSv, "sv");
     BrowserModule,
     HttpClientModule,
     CoreModule,
+    SharedModule.forRoot(),
     PagesModule
   ],
   providers: [

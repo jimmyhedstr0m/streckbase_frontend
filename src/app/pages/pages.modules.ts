@@ -4,6 +4,7 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 
 import { ComponentsModule } from "./../components";
+import { SharedModule } from "./../shared";
 
 import { AddComponent } from "./add/add.component";
 import { FrontComponent } from "./front/front.component";
@@ -26,12 +27,12 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forRoot(routes),
-    CommonModule,
-    FormsModule,
+    SharedModule,
     ComponentsModule
   ],
   exports: [
-    RouterModule
+    RouterModule,
+    ComponentsModule
   ],
   providers: [
     AddService,
