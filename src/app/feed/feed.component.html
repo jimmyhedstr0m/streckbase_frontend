@@ -1,0 +1,8 @@
+<ul *ngFor="let user of feed">
+  <li>
+    <div>
+      {{ user.firstname }} {{ user.lastname }} köpte {{ user.purchases[0].item.name }}
+    </div>
+    <div>{{ user.purchases[0].date }}</div>
+  </li>
+</ul>

@@ -1,0 +1,29 @@
+@import "src/assets/styles/variables";
+
+$blur: 80px;
+
+.block {
+  height: 100vh;
+}
+
+.image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  
+  .product {
+    position: relative;
+    max-width: 100%;
+    z-index: 1;
+  }
+  
+  .blur {
+    position: absolute;
+    filter: blur($blur);
+    max-width: 100%;
+    z-index: 1;
+    display: block;
+    margin: 0 auto;
+  }
+}
