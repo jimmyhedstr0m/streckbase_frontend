@@ -1,13 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs/internal/Subscription';
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Subscription } from "rxjs/internal/Subscription";
 
-import { FeedService } from './feed.service';
-import { User } from "./../types/user";
+import { FeedService } from "./feed.service";
+import { User } from "./../../types/user";
 
 @Component({
-  selector: 'app-feed',
-  templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.scss']
+  selector: "app-feed",
+  templateUrl: "./feed.component.html",
+  styleUrls: ["./feed.component.scss"]
 })
 export class FeedComponent implements OnInit, OnDestroy {
   private feedSubscription: Subscription;
@@ -16,7 +16,7 @@ export class FeedComponent implements OnInit, OnDestroy {
   constructor(private feedService: FeedService) { }
 
   ngOnInit() {
-    console.log('init');
+    console.log("init");
     this.feedSubscription = this.feedService.getFeed()
       .subscribe((feed: User[]) => {
         this.feed = feed

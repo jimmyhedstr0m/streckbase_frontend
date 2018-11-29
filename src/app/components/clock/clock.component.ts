@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from "@angular/core";
 
 @Component({
-  selector: 'app-clock',
-  templateUrl: './clock.component.html',
-  styleUrls: ['./clock.component.scss']
+  selector: "app-clock",
+  templateUrl: "./clock.component.html",
+  styleUrls: ["./clock.component.scss"]
 })
 export class ClockComponent implements OnInit, OnDestroy {
   private interval: number = 1000;

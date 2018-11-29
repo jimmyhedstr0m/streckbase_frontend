@@ -1,31 +1,28 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { LOCALE_ID, NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { CommonModule, registerLocaleData } from '@angular/common';
-import localeSv from '@angular/common/locales/sv';
+import { BrowserModule } from "@angular/platform-browser";
+import { LOCALE_ID, NgModule } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
+import { CommonModule, registerLocaleData } from "@angular/common";
+import localeSv from "@angular/common/locales/sv";
 
-import { AppRoutingModule } from './app-routing.module';
-import { CoreModule } from './core/core.module';
-import { AddComponent } from './add/add.component';
-import { AppComponent } from './app.component';
-import { ClockComponent } from './clock/clock.component';
-import { FeedComponent } from './feed/feed.component';
-import { FrontComponent } from './front/front.component';
-import { ProductComponent } from './product/product.component';
+import { ComponentsModule } from "./components/components.module";
 
-import { AddService } from "./add/add.service";
-import { FeedService } from './feed/feed.service';
-import { ProductService } from './product/product.service';
+import { AppRoutingModule } from "./app-routing.module";
+import { CoreModule } from "./core/core.module";
+import { AddComponent } from "./pages/add/add.component";
+import { AppComponent } from "./app.component";
+import { FrontComponent } from "./pages/front/front.component";
+import { ProductComponent } from "./pages/product/product.component";
 
-registerLocaleData(localeSv, 'sv');
+import { AddService } from "./pages/add/add.service";
+import { ProductService } from "./pages/product/product.service";
+
+registerLocaleData(localeSv, "sv");
 
 @NgModule({
   declarations: [
     AddComponent,
     AppComponent,
-    ClockComponent,
-    FeedComponent,
     FrontComponent,
     ProductComponent
   ],
@@ -35,12 +32,12 @@ registerLocaleData(localeSv, 'sv');
     FormsModule,
     CommonModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    ComponentsModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'sv' },
+    { provide: LOCALE_ID, useValue: "sv" },
     AddService,
-    FeedService,
     ProductService
   ],
   bootstrap: [AppComponent]

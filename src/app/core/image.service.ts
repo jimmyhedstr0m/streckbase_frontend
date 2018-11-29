@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
-import { environment } from './../../environments/environment';
+import { environment } from "./../../environments/environment";
 
 @Injectable()
 export class ImageService {
@@ -120,7 +120,7 @@ export class ImageService {
     return new Promise((resolve, _reject) => {
       const image: HTMLImageElement = new Image();
       image.src = environment.apiUrl + "/systembolaget/image?url=" + imageUrl + "&t=" + new Date().getTime();
-      image.setAttribute('crossOrigin', '');
+      image.setAttribute("crossOrigin", "");
 
       return image.onload = () => {
         const canvas = document.createElement("canvas");

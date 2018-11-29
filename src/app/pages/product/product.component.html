@@ -2,8 +2,8 @@
 
   <div class="col col-3">
     <div class="image-container">
-      <img class="blur" src="http://localhost:8080/punk.png" />
-      <img class="product" src="http://localhost:8080/punk.png" />
+      <img class="blur" src="http://localhost:3000/punk.png" />
+      <img class="product" src="http://localhost:3000/punk.png" />
     </div>
   </div>
 
@@ -14,7 +14,7 @@
 
   <div>product</div>
   <div *ngIf="item">
-    <div>{{ item.name }} {{ item.alcohol }}% {{ item.price | currency: 'SEK': 'symbol':'1.0-0' }}</div>
+    <div>{{ item.name }} {{ item.alcohol }}% {{ item.price | currency: "SEK": "symbol":"1.0-0" }}</div>
 
     <div>
       <img *ngIf="itemImage" [src]="itemImage" />

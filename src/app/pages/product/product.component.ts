@@ -1,15 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, } from '@angular/router';
-import { Subscription } from 'rxjs/internal/Subscription';
-import { switchMap } from 'rxjs/operators';
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { ActivatedRoute, } from "@angular/router";
+import { Subscription } from "rxjs/internal/Subscription";
+import { switchMap } from "rxjs/operators";
 
-import { ProductService } from './product.service';
-import { Item } from './../types/item';
+import { ProductService } from "./product.service";
+import { Item } from "./../../types/item";
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  selector: "app-product",
+  templateUrl: "./product.component.html",
+  styleUrls: ["./product.component.scss"]
 })
 export class ProductComponent implements OnInit, OnDestroy {
   private routeSubscription: Subscription;
@@ -26,7 +26,7 @@ export class ProductComponent implements OnInit, OnDestroy {
         })
       )
       .subscribe((item: Item) => {
-        console.log('item', item);
+        console.log("item", item);
         this.item = item;
       });
   }

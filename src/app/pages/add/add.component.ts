@@ -1,16 +1,16 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, OnDestroy, ViewChild } from "@angular/core";
+import { NgForm } from "@angular/forms";
 
-import { AddService } from './add.service';
-import { Subscription } from 'rxjs/internal/Subscription';
+import { AddService } from "./add.service";
+import { Subscription } from "rxjs/internal/Subscription";
 
-import { ImageService } from './../core/image.service';
+import { ImageService } from "./../../core/image.service";
 import { SystembolagetItem } from "./systembolaget-item";
 
 @Component({
-  selector: 'app-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss']
+  selector: "app-add",
+  templateUrl: "./add.component.html",
+  styleUrls: ["./add.component.scss"]
 })
 export class AddComponent implements OnInit, OnDestroy {
   @ViewChild("queryForm") queryForm: NgForm;
@@ -35,7 +35,7 @@ export class AddComponent implements OnInit, OnDestroy {
     if (this.queryForm.valid) {
       this.systembolagetSubscription = this.addService.getSystembolagetMetadata(this.query)
         .subscribe((item: SystembolagetItem) => {
-          console.log('item', item);
+          console.log("item", item);
           this.item = item;
 
           if (item.imageUrl) {
