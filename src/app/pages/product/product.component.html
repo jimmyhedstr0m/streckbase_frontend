@@ -8,7 +8,7 @@
   </div>
 
   <div class="col col-9">
-
+    <app-button (click)="openModal()">Open modal</app-button>
   </div>
 
 
@@ -21,3 +21,7 @@
     </div>
   </div>
 </div>
+
+<app-modal [(show)]="showModal">
+  This is a modal
+</app-modal>

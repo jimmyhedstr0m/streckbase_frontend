@@ -14,6 +14,7 @@ import { Item } from "./../../types/item";
 export class ProductComponent implements OnInit, OnDestroy {
   private routeSubscription: Subscription;
   public item: Item;
+  public showModal: boolean = false;
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
@@ -33,6 +34,10 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.routeSubscription.unsubscribe();
+  }
+
+  openModal() {
+    this.showModal = true;
   }
 
 }
