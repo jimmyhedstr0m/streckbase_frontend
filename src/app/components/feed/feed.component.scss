@@ -1,3 +1,32 @@
+@import "src/assets/styles/_variables";
+
 .block {
-  text-align: center;
+  background-color: color("header");
+  height: 100%;
+  border-right: 1px solid color("border");
+  padding: 24px;
+}
+
+.list { }
+
+.item {
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}
+
+.name {
+  display: block;
+  color: color("text");
+}
+
+.event {
+  display: flex;
+  justify-content: space-between;
+  color: color("text--muted");
+  font-size: 14px;
+
+  .item-name {
+    margin-right: 16px;
+  }
 }

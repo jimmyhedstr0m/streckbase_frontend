@@ -1,8 +1,17 @@
-<ul *ngFor="let user of feed">
-  <li>
-    <div>
-      {{ user.firstname }} {{ user.lastname }} köpte {{ user.purchases[0].item.name }}
-    </div>
-    <div>{{ user.purchases[0].date }}</div>
-  </li>
-</ul>
+<aside class="block">
+  <ul class="list">
+    <li *ngFor="let user of feed" class="item">
+      <div class="name">
+        {{ user.firstname }} {{ user.lastname }}
+      </div>
+      <div class="event">
+        <span class="item-name">
+          {{ user.purchases[0].item.name }}
+        </span>
+        <span>
+          {{ user.purchases[0].date }}
+        </span>
+      </div>
+    </li>
+  </ul>
+</aside>

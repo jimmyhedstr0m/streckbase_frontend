@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import "./variables";
 
 * {
@@ -24,10 +25,11 @@ body {
   touch-action: manipulation;
   word-wrap: break-word;
   user-select: none;
-  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
-  background-image: linear-gradient(color("background"), #000);
-  color: #fafafa;
+  background: color("background");
+  // background-image: linear-gradient($background, #000);
+  color: color("text");
 }
 
 form, input, optgroup, select {
@@ -47,7 +49,6 @@ div, span, a, button, input, textarea {
 
 textarea, input, button {
   outline: none;
-  color: #333;
 }
 
 input,

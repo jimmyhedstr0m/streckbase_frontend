@@ -1,5 +1,20 @@
+@import "src/assets/styles/_variables";
+
+$height: 60px;
+
 .header {
-  height: 100px;
+  height: $height;
   width: 100%;
-  background-color: #222222;
+  background-color: color("header");
+  border-bottom: 1px solid color("border");
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: color("text");
+  font-size: 24px;
+  margin: 0;
 }

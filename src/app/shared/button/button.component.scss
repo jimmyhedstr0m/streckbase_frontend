@@ -1,5 +1,34 @@
-@import "src/assets/styles/variables";
+@import "src/assets/styles/_variables";
 
-button {
+$height: 44px;
+$borderRadius: 4px;
+$color: #fff;
+
+.button {
   display: inline-block;
+  position: relative;
+  z-index: 1;
+  appearance: none;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: none;
+  white-space: nowrap;
+  cursor: pointer;
+  vertical-align: top;
+  vertical-align: -webkit-baseline-middle;
+  transition: background-color,opacity .1s linear;
+  font-kerning: none;
+  user-select: none;
+  contain: content;
+  text-decoration: none;
+  border-radius: $borderRadius;
+  font-size: inherit;
+  color: $color;
+  // background-color: #ff2d55;
+  padding: 0 8px;
+  height: $height;
+
+  &.green {
+    background-color: color("green");
+  }
 }

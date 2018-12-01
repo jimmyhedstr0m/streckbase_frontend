@@ -1,0 +1,22 @@
+$colors: (
+  "background": #111f39,
+  "green": #6cbb9c,
+  "blue": #589aea,
+  "pink": #d36290,
+  "red": #cd4f4d,
+  "orange": #e06619,
+  "border": #293b54,
+  "text": #c3ccda,
+  "text--muted": #525b72,
+  "header": #1b2b46
+);
+
+// $colors: (
+//   "sexy": #FA6ACC,
+//   "glamour": #F02A52,
+//   "sky": #09A6E4
+// );
+
+@function color($key) {
+  @return map-get($colors, $key);
+}

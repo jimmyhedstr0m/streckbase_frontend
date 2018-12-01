@@ -1,8 +1,0 @@
-$colors: (
-  "background": #272c35, 
-  "danger": red
-);
-
-@function color($value) {
-  @return map-get($colors, $value);
-}
