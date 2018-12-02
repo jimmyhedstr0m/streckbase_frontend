@@ -1,4 +1,17 @@
-// .container {
-//   height: 100%;
-//   background-image: linear-gradient(transparent, rgba(0, 0, 0, .5));
-// }
+@import "src/assets/styles/_variables";
+
+.container {
+  // padding-top: calc(#{size("header")} + #{size("gutter--huge")});
+  // padding-top: size("header");
+}
+
+.gradient {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  // background-image: linear-gradient(to bottom right, #fff,transparent);
+  background-image: linear-gradient(to bottom, transparent, #000);
+  opacity: .7;
+}

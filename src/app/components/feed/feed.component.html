@@ -1,4 +1,4 @@
-<aside class="block">
+<div class="block">
   <ul class="list">
     <li *ngFor="let user of feed" class="item">
       <div class="name">
@@ -8,10 +8,10 @@
         <span class="item-name">
           {{ user.purchases[0].item.name }}
         </span>
-        <span>
-          {{ user.purchases[0].date }}
+        <span class="date">
+          {{ user.purchases[0].date | date:"d MMMM HH:mm" }}
         </span>
       </div>
     </li>
   </ul>
-</aside>
+</div>

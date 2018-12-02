@@ -1,22 +1,33 @@
 $colors: (
-  "background": #111f39,
+  "background": #202529, // done
   "green": #6cbb9c,
   "blue": #589aea,
   "pink": #d36290,
   "red": #cd4f4d,
   "orange": #e06619,
-  "border": #293b54,
-  "text": #c3ccda,
-  "text--muted": #525b72,
-  "header": #1b2b46
+  "border": #32383D, // done
+  "text": #FCFCFC, // done
+  "text--muted": #DDD4D4,
+  "header": #32383D,
+  "grey": #4C555C, // done
+  "light-grey": #A1B4C4, //done
+  "primary" : #1BC6B4
 );
 
-// $colors: (
-//   "sexy": #FA6ACC,
-//   "glamour": #F02A52,
-//   "sky": #09A6E4
-// );
+$sizes: (
+  "header": 60px,
+  "gutter--mini": .25rem,
+  "gutter--small": .5rem,
+  "gutter": 1rem,
+  "gutter--large": 1.5rem,
+  "gutter--huge": 2rem,
+  "gutter--extreme": 3rem
+);
 
 @function color($key) {
   @return map-get($colors, $key);
+}
+
+@function size($key) {
+  @return map-get($sizes, $key);
 }

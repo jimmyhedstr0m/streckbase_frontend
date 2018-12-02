@@ -1,4 +1,35 @@
 <div class="block">
-  <div>{{ currentTime | date:"HH:mm"}}</div>
-  <div>{{ currentTime | date:"EEEE, d" | titlecase }} {{ currentTime | date:"MMMM" }}</div>
+  <div class="bg"></div>
+  <div>
+    <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+      <defs>
+        <linearGradient id="hourGradient" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stop-color="#C64191" />
+          <stop offset="100%" stop-color="#FF495C" />
+        </linearGradient>
+
+        <linearGradient id="minuteGradient" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stop-color="#FF495C" />
+          <stop offset="100%" stop-color="#46237A" />
+        </linearGradient>
+      </defs>
+
+      <circle id="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="transparent"></circle>
+
+      <circle id="hour-background" cx="21" cy="21" [style.r]="hourRadius" fill="transparent" stroke="#32383D"
+        [style.strokeWidth]="strokeWidth"></circle>
+
+      <circle id="hour" cx="21" cy="21" [style.r]="hourRadius" fill="transparent" stroke="url(#hourGradient)"
+        [style.strokeWidth]="strokeWidth" [style.strokeDasharray]="hourStrokeArray" [style.strokeDashoffset]="hourOffset"></circle>
+
+      <circle id="minute" cx="21" cy="21" [style.r]="minuteRadius" fill="transparent" stroke="url(#minuteGradient)"
+        [style.strokeWidth]="strokeWidth" [style.strokeDasharray]="minutesStrokeArray" [style.strokeDashoffset]="minuteOffset"></circle>
+    </svg>
+  </div>
+  <div class="overlay">
+    <div class="digits">
+      <div class="time">{{ currentTime | date:"HH:mm"}}</div>
+      <div class="date">{{ currentTime | date:"EEEE, d" | titlecase }} {{ currentTime | date:"MMMM" }}</div>
+    </div>
+  </div>
 </div>

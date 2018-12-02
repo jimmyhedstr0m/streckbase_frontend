@@ -1,6 +1,28 @@
-
+@import "src/assets/styles/_variables";
 
 .container {
   display: flex;
-  height: calc(100vh - 60px);
+  // height: calc(100vh - 60px);
+}
+
+.feed {
+  min-width: 25%;
+  max-width: 25%;
+}
+
+.clock {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .inner {
+    width: 80%;
+  }
+}
+
+.derp {
+  min-width: 25%;
+  max-width: 25%;
 }

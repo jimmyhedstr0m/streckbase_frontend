@@ -1,3 +1,36 @@
+@import "src/assets/styles/_variables";
+
 .block {
+  position: relative;
+}
+
+.bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  border-radius: 50%;
+}
+
+.overlay {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+}
+
+.digits {
   text-align: center;
+}
+
+.time {
+  font-size: 4rem;
+}
+
+.date {
+  font-size: 1rem;
+  color: color("light-grey");
 }
