@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: "app-front",
@@ -6,6 +7,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
   styleUrls: ["./front.component.scss"]
 })
 export class FrontComponent implements OnInit, OnDestroy {
+  public faUsers = faUsers;
 
   constructor() { }
 

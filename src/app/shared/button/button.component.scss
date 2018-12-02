@@ -1,7 +1,8 @@
 @import "src/assets/styles/_variables";
 
-$height: 44px;
-$borderRadius: 4px;
+$height: 80px;
+$width: $height;
+$borderRadius: $height / 2;
 $color: #fff;
 
 .button {
@@ -23,12 +24,15 @@ $color: #fff;
   text-decoration: none;
   border-radius: $borderRadius;
   font-size: inherit;
+  border-color: transparent;
   color: $color;
+  box-shadow: 0px 2px 10px 3px rgba(0, 0, 0, 0.1);
   // background-color: #ff2d55;
-  padding: 0 8px;
+  // padding: 0 2em;
   height: $height;
+  width: $width;
 
   &.green {
-    background-color: color("green");
+    background-color: color("primary");
   }
 }

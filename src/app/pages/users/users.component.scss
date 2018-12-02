@@ -1,0 +1,8 @@
+@import "src/assets/styles/_variables";
+
+.container {
+  // padding-top: calc(#{size("header")} + #{size("gutter--huge")});
+  padding-top: size("header");
+  padding-left: size("gutter--huge");
+  padding-right: size("gutter--huge");
+}

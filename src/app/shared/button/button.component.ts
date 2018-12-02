@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-button",
@@ -7,7 +8,14 @@ import { Component, Input } from "@angular/core";
 })
 export class ButtonComponent {
   @Input() modifiers: string[] = [];
+  @Input() to?: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  onClick(_event: Event) {
+    if (this.to) {
+      this.router.navigateByUrl(this.to);
+    }
+  }
 
 }
