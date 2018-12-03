@@ -9,7 +9,16 @@
   height: 100%;
   width: 100%;
   top: 0;
-  border-radius: 50%;
+
+
+  z-index: -1;
+
+  transform: skew(36deg);
+  transform-origin: 0% 100%;
+}
+
+.donut {
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, center top, center bottom, from(transparent), color-stop(50%, transparent), to(rgba(255,255,255,0.2)));
 }
 
 .overlay {

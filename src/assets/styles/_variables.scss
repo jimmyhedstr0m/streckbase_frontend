@@ -1,13 +1,14 @@
 $colors: (
-  "background": #202529, // done
+  "background": #131322, // done
   // "green": #6cbb9c,
   // "blue": #589aea,
   // "pink": #d36290,
   // "red": #cd4f4d,
   "neon-red": #FF495C,
+  "cool-red": #e9445a,
   "orange": #e06619,
   "border": #32383D, // done
-  "text": #FCFCFC, // done
+  "text": #fff, // done
   "text--muted": #DDD4D4,
   "header": #32383D,
   "grey": #4C555C, // done
@@ -16,7 +17,7 @@ $colors: (
 );
 
 $sizes: (
-  "header": 60px,
+  "header": 100px,
   "gutter--mini": .25rem,
   "gutter--small": .5rem,
   "gutter": 1rem,

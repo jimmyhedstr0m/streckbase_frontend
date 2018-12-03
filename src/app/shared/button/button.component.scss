@@ -32,7 +32,10 @@ $color: #fff;
   height: $height;
   width: $width;
 
-  &.green {
-    background-color: color("primary");
+  &.primary {
+    //background-color: color("primary");
+    background-color: #fff;
+    color: color("background");
+    box-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.4);
   }
 }

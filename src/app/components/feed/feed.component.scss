@@ -27,13 +27,14 @@
 
 .name {
   display: block;
-  color: color("primary");
+  color: color("cool-red");
+  font-weight: bold;
 }
 
 .event {
   display: flex;
   justify-content: space-between;
-  color: color("light-grey");
+  color: #fff;
   font-size: 14px;
 
   .item-name {
@@ -46,6 +47,7 @@
   .date {
     flex: 0 0 auto;
     text-align: right;
-    color: color("grey");
+    // color: color("grey");
+    color: #98989e;
   }
 }

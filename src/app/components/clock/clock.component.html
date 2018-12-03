@@ -1,7 +1,6 @@
 <div class="block">
-  <div class="bg"></div>
   <div>
-    <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+    <svg width="100%" height="100%" viewBox="0 0 34 34" class="donut">
       <defs>
         <linearGradient id="hourGradient" x1="0" x2="1" y1="0" y2="0">
           <stop offset="0%" stop-color="#C64191" />
@@ -14,15 +13,15 @@
         </linearGradient>
       </defs>
 
-      <circle id="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="transparent"></circle>
+      <circle id="donut-hole" cx="17" cy="17" r="15.91549430918954" fill="transparent"></circle>
 
-      <circle id="hour-background" cx="21" cy="21" [style.r]="hourRadius" fill="transparent" stroke="#32383D"
+      <circle id="hour-background" cx="17" cy="17" [style.r]="hourRadius" fill="transparent" stroke="#32383D"
         [style.strokeWidth]="strokeWidth"></circle>
 
-      <circle id="hour" cx="21" cy="21" [style.r]="hourRadius" fill="transparent" stroke="url(#hourGradient)"
+      <circle id="hour" cx="17" cy="17" [style.r]="hourRadius" fill="transparent" stroke="url(#hourGradient)"
         [style.strokeWidth]="strokeWidth" [style.strokeDasharray]="hourStrokeArray" [style.strokeDashoffset]="hourOffset"></circle>
 
-      <circle id="minute" cx="21" cy="21" [style.r]="minuteRadius" fill="transparent" stroke="url(#minuteGradient)"
+      <circle id="minute" cx="17" cy="17" [style.r]="minuteRadius" fill="transparent" stroke="url(#minuteGradient)"
         [style.strokeWidth]="strokeWidth" [style.strokeDasharray]="minutesStrokeArray" [style.strokeDashoffset]="minuteOffset"></circle>
     </svg>
   </div>
