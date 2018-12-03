@@ -1,8 +1,41 @@
 @import "src/assets/styles/_variables";
 
+$cardWidth: 10%;
+$gutter: size("gutter");
+
 .container {
   // padding-top: calc(#{size("header")} + #{size("gutter--huge")});
   padding-top: size("header");
   padding-left: size("gutter--huge");
   padding-right: size("gutter--huge");
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$gutter/2;
+  margin-right: -$gutter/2;
+}
+
+.card {
+  position: relative;
+  width: $cardWidth;
+  padding-top: $cardWidth;
+  margin: $gutter/2;
+  flex: 0 0 auto;
+}
+
+.user {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  padding: size("gutter--small");
+  background-color: color("neon-red");
 }

@@ -14,7 +14,7 @@ export class ClockComponent implements OnInit, OnDestroy {
   public currentTime: Date;
   public hourStrokeArray: string;
   public minutesStrokeArray: string;
-  public strokeWidth: number = 3;
+  public strokeWidth: number = 2;
   public hourOffset: number;
   public minuteOffset: number;
   public minuteRadius: number;

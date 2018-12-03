@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { ButtonComponent } from "./button/button.component";
+import { HiddenInputComponent } from "./hidden-input/hidden-input.component";
 import { ModalContainerComponent } from "./modal/modal-container.component";
 import { ModalComponent } from "./modal/modal.component";
 
@@ -17,6 +18,7 @@ import { ModalService } from "./modal/modal.service";
   ],
   declarations: [
     ButtonComponent,
+    HiddenInputComponent,
     ModalContainerComponent,
     ModalComponent
   ],
@@ -25,6 +27,7 @@ import { ModalService } from "./modal/modal.service";
     FormsModule,
     FontAwesomeModule,
     ButtonComponent,
+    HiddenInputComponent,
     ModalContainerComponent,
     ModalComponent
   ]

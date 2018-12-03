@@ -1,5 +1,26 @@
 <div class="container">
   <div>
+    <ul class="list">
+      <li *ngFor="let lobster of lobare" class="card">
+        <div class="user">
+          <div>
+            <fa-icon [icon]="faUser" size="2x"></fa-icon>
+          </div>
+          <div>
+            {{lobster.firstname}}
+          </div>
+          <div>
+            {{lobster.lastname}}
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <!-- <ul style="margin-top: 1rem;">
+      <li *ngFor="let xlobster of xlob">
+        {{xlobster.firstname}} {{xlobster.lastname}}
+      </li>
+    </ul> -->
     <!-- <app-button modifiers="green">
       <fa-icon [icon]="faChevronLeft"></fa-icon>
     </app-button> -->
