@@ -3,6 +3,8 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { PrettyDatePipe } from "./pretty-date.pipe";
+
 import { ButtonComponent } from "./button/button.component";
 import { HiddenInputComponent } from "./hidden-input/hidden-input.component";
 import { ModalContainerComponent } from "./modal/modal-container.component";
@@ -20,7 +22,8 @@ import { ModalService } from "./modal/modal.service";
     ButtonComponent,
     HiddenInputComponent,
     ModalContainerComponent,
-    ModalComponent
+    ModalComponent,
+    PrettyDatePipe
   ],
   exports: [
     CommonModule,
@@ -29,7 +32,8 @@ import { ModalService } from "./modal/modal.service";
     ButtonComponent,
     HiddenInputComponent,
     ModalContainerComponent,
-    ModalComponent
+    ModalComponent,
+    PrettyDatePipe
   ]
 })
 export class SharedModule {

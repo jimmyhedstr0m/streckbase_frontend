@@ -1,19 +1,21 @@
-<div class="content-container">
-  <div class="feed">
-    <app-feed></app-feed>
-  </div>
-
-  <div class="clock">
-    <div class="inner">
-      <app-clock></app-clock>
+<div class="block">
+  <div class="content-container">
+    <div class="feed">
+      <app-feed></app-feed>
     </div>
+
+    <div class="clock">
+      <div class="inner">
+        <app-clock></app-clock>
+      </div>
+    </div>
+
+    <div class="derp"></div>
   </div>
 
-  <div class="derp"></div>
-</div>
-
-<div class="action-container">
-  <app-button modifiers="primary" to="/users">
-    <fa-icon [icon]="faUsers" size="2x"></fa-icon>
-  </app-button>
+  <div class="action-container">
+    <app-button modifiers="primary" to="/users">
+      <fa-icon [icon]="faUsers" size="2x"></fa-icon>
+    </app-button>
+  </div>
 </div>

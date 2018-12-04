@@ -9,7 +9,7 @@
           {{ user.purchases[0].item.name }}
         </span>
         <span class="date">
-          {{ user.purchases[0].date | date:"d MMMM HH:mm" }}
+          {{ user.purchases[0].date | prettyDate }}
         </span>
       </div>
     </li>

@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+
+import { SharedModule } from "./../shared";
 
 import { ClockComponent } from "./clock/clock.component";
 import { FeedComponent } from "./feed/feed.component";
@@ -14,7 +15,7 @@ import { FeedService } from "./feed/feed.service";
     HeaderComponent
   ],
   imports: [
-    CommonModule
+    SharedModule
   ],
   providers: [
     FeedService

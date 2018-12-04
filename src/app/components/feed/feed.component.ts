@@ -19,7 +19,8 @@ export class FeedComponent implements OnInit, OnDestroy {
     console.log("init");
     this.feedSubscription = this.feedService.getFeed()
       .subscribe((feed: User[]) => {
-        this.feed = feed
+
+        this.feed = feed;
         console.log(feed);
       });
   }
