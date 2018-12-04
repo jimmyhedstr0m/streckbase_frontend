@@ -1,10 +1,9 @@
 @import "src/assets/styles/_variables";
 
-$cardWidth: 10%;
-$gutter: size("gutter");
+$cardWidth: 12.5%;
+$gutter: 2rem;
 
 .container {
-  // padding-top: calc(#{size("header")} + #{size("gutter--huge")});
   padding-top: size("header");
   padding-left: size("gutter--huge");
   padding-right: size("gutter--huge");
@@ -17,25 +16,164 @@ $gutter: size("gutter");
   margin-right: -$gutter/2;
 }
 
-.card {
-  position: relative;
+.item {
   width: $cardWidth;
-  padding-top: $cardWidth;
-  margin: $gutter/2;
+  padding: $gutter/2;
   flex: 0 0 auto;
 }
 
 .user {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  box-shadow: -2px 4px 20px 0px rgba(0, 0, 0, 0.4);
+
+  &:before {
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    content: "";
+    bottom: 0;
+    left: -5%;
+    transform: skew(45deg);
+    z-index: -1;
+    background: #60609a;
+    opacity: .3;
+  }
+
+  &:after {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    left: 0;
+    content: "";
+    // background-image: linear-gradient(to bottom, rgba(#60609a, .3), transparent);
+  }
+}
+
+.inner {
+  display: flex;
   position: absolute;
   width: 100%;
   height: 100%;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
+  justify-content: space-between;
+  padding: 1rem;
+  top: 0; 
+  // background-image: linear-gradient(to bottom, #602a7a, #60609a);
+  font-weight: bold;
+  overflow: hidden;
+  
+  &:after {
+    position: absolute;
+    top: -5%;
+    right: -15%;
+    content: "";
+    width: 50%;
+    height: 120%;
+    transform: rotate(10deg);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, .1) 0%, transparent 70%);
+    z-index: 0;
+  }
+}
+
+.icon {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
-  padding: size("gutter--small");
-  background-color: color("neon-red");
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  z-index: 0;
+  opacity: .5;
+}
+
+.name {
+  padding: .5rem;
+}
+
+.user {
+  &.purple {
+    &:after {
+      background-image: linear-gradient(to bottom, rgba(#60609a, .3), transparent);
+    }
+
+    .inner {
+      background-image: linear-gradient(to bottom, #602a7a, #60609a);
+    }
+  }
+
+  &.orange {
+    &:after {
+      background-image: linear-gradient(to bottom, rgba(#9d6c46, .3), transparent);
+    }
+
+    .inner {
+      background-image: linear-gradient(to bottom, #79244b, #9d6c46);
+    }
+  }
+
+  &.blue {
+    &:after {
+      background-image: linear-gradient(to bottom, rgba(#447895, .3), transparent);
+    }
+
+    .inner {
+      background-image: linear-gradient(to bottom, #2a2f86, #447895);
+    }
+  }
+
+  &.mint {
+    &:after {
+      background-image: linear-gradient(to bottom, rgba(#C5CBD3, .3), transparent);
+    }
+
+    .inner {
+      background-image: linear-gradient(to bottom, #8CBCB9, #C5CBD3);
+    }
+  }
+
+  &.whine {
+    &:after {
+      background-image: linear-gradient(to bottom, rgba(#A53860, .3), transparent);
+    }
+
+    .inner {
+      background-image: linear-gradient(to bottom, #450920, #A53860);
+    }
+  }
+
+  &.police {
+    &:after {
+      background-image: linear-gradient(to bottom, rgba(#5BC0EB, .3), transparent);
+    }
+
+    .inner {
+      background-image: linear-gradient(to bottom, #E9445A, #5BC0EB);
+    }
+  }
+
+  &.blod {
+    &:after {
+      background-image: linear-gradient(to bottom, rgba(#E9445A, .3), transparent);
+    }
+
+    .inner {
+      background-image: linear-gradient(to bottom, #F40000, #E9445A);
+    }
+  }
+
+  &.test {
+    &:after {
+      background-image: linear-gradient(to bottom, rgba(#E9445A, .3), transparent);
+    }
+
+    .inner {
+      background-image: linear-gradient(to bottom, #F40000, #E9445A);
+    }
+  }
+
 }
