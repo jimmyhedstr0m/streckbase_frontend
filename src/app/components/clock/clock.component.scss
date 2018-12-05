@@ -18,6 +18,7 @@
 }
 
 .donut {
+  backface-visibility: hidden;
   -webkit-box-reflect: below 0px -webkit-gradient(linear, center top, center bottom, from(transparent), color-stop(50%, transparent), to(rgba(255,255,255,0.2)));
 }
 

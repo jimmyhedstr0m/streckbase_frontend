@@ -2,10 +2,11 @@
   <div>
     <ul class="list">
       <li *ngFor="let lobster of xlob" class="item">
-        <div class="user" [ngClass]="getColorClass(lobster)">
+        <div class="user purple" [ngClass]="getColorClass(lobster)">
           <div class="inner">
             <div class="icon">
-              <fa-icon [icon]="faUser" size="4x"></fa-icon>
+              <!-- <fa-icon [icon]="faUser" size="4x"></fa-icon> -->
+              {{lobster.firstname.charAt(0)}} {{lobster.lastname.charAt(0)}}
             </div>
           </div>
         </div>
