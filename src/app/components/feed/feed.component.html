@@ -1,5 +1,9 @@
 <div class="block">
-  <ul class="list">
+  <div *ngIf="feed === undefined" class="spinner">
+    <app-spinner [show]="true"></app-spinner>
+  </div>
+
+  <ul *ngIf="feed" class="list">
     <li *ngFor="let user of feed" class="item">
       <div class="name">
         {{ user.firstname }} {{ user.lastname }}

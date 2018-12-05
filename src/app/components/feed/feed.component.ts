@@ -11,7 +11,7 @@ import { User } from "./../../types/user";
 })
 export class FeedComponent implements OnInit, OnDestroy {
   private feedSubscription: Subscription;
-  public feed: User[] = [];
+  public feed: User[];
 
   constructor(private feedService: FeedService) { }
 

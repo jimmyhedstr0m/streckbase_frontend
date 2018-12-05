@@ -10,6 +10,7 @@ import { ButtonComponent } from "./button/button.component";
 import { HiddenInputComponent } from "./hidden-input/hidden-input.component";
 import { ModalContainerComponent } from "./modal/modal-container.component";
 import { ModalComponent } from "./modal/modal.component";
+import { SpinnerComponent } from "./spinner/spinner.component";
 import { UserCardComponent } from "./user-card/user-card.component";
 import { WrapperComponent } from "./wrapper/wrapper.component";
 
@@ -28,6 +29,7 @@ import { ModalService } from "./modal/modal.service";
     ModalContainerComponent,
     ModalComponent,
     PrettyDatePipe,
+    SpinnerComponent,
     UserCardComponent,
     WrapperComponent
   ],
@@ -41,6 +43,7 @@ import { ModalService } from "./modal/modal.service";
     ModalContainerComponent,
     ModalComponent,
     PrettyDatePipe,
+    SpinnerComponent,
     UserCardComponent,
     WrapperComponent
   ]
