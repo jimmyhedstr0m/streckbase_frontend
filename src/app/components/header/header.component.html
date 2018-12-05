@@ -4,4 +4,6 @@
       streckbase
     </h1>
   </a>
+
+  <div *ngIf="!isHomeRoute" class="clock">{{ currentTime | date:"HH:mm"}}</div>
 </header>
