@@ -1,0 +1,38 @@
+@import "src/assets/styles/_variables";
+
+.action-container {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: size("footer");
+  // justify-content: flex-end;
+  align-items: center;
+  padding: size("gutter--huge");
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  &.flex-start {
+    justify-content: flex-start;
+  }
+
+  &.flex-center {
+    justify-content: center;
+  }
+
+  &.flex-end {
+    justify-content: flex-end;
+  }
+
+  &.between {
+    justify-content: flex-end;
+  }
+
+  &.bg {
+    // background-color: rgba(color("background"), .95);
+    // background-image: linear-gradient(to bottom, transparent, #000);
+    // transform: translateZ(0);
+    // backdrop-filter: blur(2px); 
+  }
+}

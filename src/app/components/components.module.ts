@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
 
 import { SharedModule } from "./../shared";
 
@@ -15,6 +16,7 @@ import { FeedService } from "./feed/feed.service";
     HeaderComponent
   ],
   imports: [
+    RouterModule,
     SharedModule
   ],
   providers: [

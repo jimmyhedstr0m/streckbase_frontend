@@ -1,5 +1,7 @@
-<header class="header">
-  <h1 class="logo">
-    streckbase
-  </h1>
+<header class="header" [class.background]="!isHomeRoute">
+  <a [routerLink]="['/']">
+    <h1 class="logo">
+      streckbase
+    </h1>
+  </a>
 </header>

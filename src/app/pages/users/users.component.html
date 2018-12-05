@@ -1,17 +1,39 @@
-<div class="container">
-  <div>
-    <ul class="list">
-      <li *ngFor="let lobster of xlob" class="item">
-        <div class="user purple" [ngClass]="getColorClass(lobster)">
-          <div class="inner">
-            <div class="icon">
-              <!-- <fa-icon [icon]="faUser" size="4x"></fa-icon> -->
-              {{lobster.firstname.charAt(0)}} {{lobster.lastname.charAt(0)}}
-            </div>
-          </div>
-        </div>
-        <div class="name">{{lobster.firstname}} {{lobster.lastname}}</div>
-      </li>
-    </ul>
+<app-wrapper>
+  <div *ngIf="lobare && xlobare" class="container">
+    <!-- <div class="overlay"></div> -->
+    <div class="inner">
+      <div class="label">
+        Välj användare
+      </div>
+
+      <div class="title">
+        Lob
+      </div>
+      <ul class="list lobare">
+        <li *ngFor="let lobster of lobare" class="item">
+          <a [routerLink]="['/users', lobster.id]">
+            <app-user-card [user]="lobster"></app-user-card>
+          </a>
+        </li>
+      </ul>
+
+      <div class="title">
+        Xlob
+      </div>
+      <ul class="list">
+        <li *ngFor="let xlobster of xlobare" class="item">
+          <a [routerLink]="['/users', xlobster.id]">
+            <app-user-card [user]="xlobster"></app-user-card>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <app-action-bar [background]="true" position="left">
+      <app-button modifiers="primary" to="/">
+        <fa-icon [icon]="faChevronLeft" size="2x"></fa-icon>
+      </app-button>
+    </app-action-bar>
+
   </div>
-</div>
+</app-wrapper>

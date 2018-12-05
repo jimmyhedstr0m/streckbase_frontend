@@ -1,15 +1,11 @@
 @import "src/assets/styles/_variables";
 
-$cardWidth: 12.5%;
 $gutter: 2rem;
 
 .container {
   padding-top: size("header");
   padding-left: size("gutter--huge");
   padding-right: size("gutter--huge");
-}
-
-.inner {
   padding-bottom: size("footer");
 }
 
@@ -26,6 +22,16 @@ $gutter: 2rem;
   opacity: .5;
 }
 
+.title-row {
+  display: flex;
+}
+
+.user-card {
+  width: 80px;
+  height: 80px;
+  margin-right: 2rem;
+}
+
 .label {
   color: color("cool-red");
   font-size: 1.5rem;
@@ -37,20 +43,30 @@ $gutter: 2rem;
   font-weight: bold;
 }
 
-.list {
+.debt-container {
   display: flex;
-  flex-wrap: wrap;
-  margin-left: -$gutter/2;
-  margin-right: -$gutter/2;
-  transform: translateZ(0);
+  justify-content: flex-end;
+  flex: 1 1 auto;
+  margin-left: 2rem;
+}
 
-  &.lobare {
-    margin-bottom: 2rem;
-  }
+.debt {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.left-column {
+  width: 33.33333%;
+}
+
+.list {
+  margin-left: 116px;
+  margin-top: 1rem;
 }
 
 .item {
-  width: $cardWidth;
-  padding: $gutter/2;
-  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  // flex: 0 0 auto;
 }

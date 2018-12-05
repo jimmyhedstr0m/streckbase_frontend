@@ -18,8 +18,17 @@ $colors: (
   "purple": #602a7a
 );
 
+$breakpoints: (
+  "mini"   : 380px,
+  "tiny"   : 550px,
+  "small"  : 750px,
+  "medium" : 884px,
+  "large"  : 1176px
+);
+
 $sizes: (
   "header": 100px,
+  "footer": 144px,
   "gutter--mini": .25rem,
   "gutter--small": .5rem,
   "gutter": 1rem,
@@ -30,6 +39,10 @@ $sizes: (
 
 @function color($key) {
   @return map-get($colors, $key);
+}
+
+@function breakpoint($key) {
+  @return map-get($breakpoints, $key);
 }
 
 @function size($key) {

@@ -1,0 +1,8 @@
+<div *ngIf="user" class="user" [ngClass]="getColorClass()">
+  <div class="inner">
+    <div class="icon">
+      {{user.firstname.charAt(0)}} {{user.lastname.charAt(0)}}
+    </div>
+  </div>
+</div>
+<div *ngIf="user && includeName" class="name">{{user.firstname}} {{user.lastname}}</div>

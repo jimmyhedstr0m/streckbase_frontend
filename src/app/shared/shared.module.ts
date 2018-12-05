@@ -5,10 +5,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { PrettyDatePipe } from "./pretty-date.pipe";
 
+import { ActionBarComponent } from "./action-bar/action-bar.component";
 import { ButtonComponent } from "./button/button.component";
 import { HiddenInputComponent } from "./hidden-input/hidden-input.component";
 import { ModalContainerComponent } from "./modal/modal-container.component";
 import { ModalComponent } from "./modal/modal.component";
+import { UserCardComponent } from "./user-card/user-card.component";
+import { WrapperComponent } from "./wrapper/wrapper.component";
 
 import { ModalService } from "./modal/modal.service";
 
@@ -19,21 +22,27 @@ import { ModalService } from "./modal/modal.service";
     FontAwesomeModule
   ],
   declarations: [
+    ActionBarComponent,
     ButtonComponent,
     HiddenInputComponent,
     ModalContainerComponent,
     ModalComponent,
-    PrettyDatePipe
+    PrettyDatePipe,
+    UserCardComponent,
+    WrapperComponent
   ],
   exports: [
     CommonModule,
     FormsModule,
     FontAwesomeModule,
+    ActionBarComponent,
     ButtonComponent,
     HiddenInputComponent,
     ModalContainerComponent,
     ModalComponent,
-    PrettyDatePipe
+    PrettyDatePipe,
+    UserCardComponent,
+    WrapperComponent
   ]
 })
 export class SharedModule {

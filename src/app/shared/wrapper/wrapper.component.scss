@@ -1,0 +1,29 @@
+@import "src/assets/styles/_variables";
+
+.wrapper {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @media (min-width: breakpoint("mini")) {
+    width: breakpoint("mini");
+  }
+
+  @media (min-width: breakpoint("tiny")) {
+    width: breakpoint("tiny");
+  }
+
+  @media (min-width: breakpoint("small")) {
+    width: breakpoint("small");
+  }
+
+  @media (min-width: breakpoint("medium")) {
+    width: breakpoint("medium");
+  }
+
+  @media (min-width: breakpoint("large")) {
+    width: breakpoint("large");
+  }
+}
