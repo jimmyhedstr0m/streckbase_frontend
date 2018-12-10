@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="debt-container">
-          <span>{{user.debt}} kr</span>
+          <span class="debt">{{user.debt}} kr</span>
         </div>
       </div>
 
@@ -37,7 +37,7 @@
     </div>
 
     <app-action-bar [background]="true" position="left">
-      <app-button modifiers="primary" to="/users">
+      <app-button label="Bakåt" modifiers="primary" to="/users">
         <fa-icon [icon]="faChevronLeft" size="2x"></fa-icon>
       </app-button>
 

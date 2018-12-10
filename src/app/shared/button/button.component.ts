@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./button.component.scss"]
 })
 export class ButtonComponent {
+  @Input() label?: string;
   @Input() modifiers: string[] = [];
   @Input() to?: string;
 

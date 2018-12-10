@@ -3,7 +3,7 @@
     <!-- <div class="overlay"></div> -->
     <div class="inner">
       <div class="label">
-        Välj användare
+        Användare
       </div>
 
       <div class="title">
@@ -18,7 +18,7 @@
       </ul>
 
       <div class="title">
-        Xlob
+        Övriga
       </div>
       <ul class="list">
         <li *ngFor="let xlobster of xlobare" class="item">
@@ -30,7 +30,7 @@
     </div>
 
     <app-action-bar [background]="true" position="left">
-      <app-button modifiers="primary" to="/">
+      <app-button label="Bakåt" modifiers="primary" to="/">
         <fa-icon [icon]="faChevronLeft" size="2x"></fa-icon>
       </app-button>
     </app-action-bar>
