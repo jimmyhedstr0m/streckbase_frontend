@@ -18,5 +18,4 @@ export class FrontComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
 
   }
-
 }

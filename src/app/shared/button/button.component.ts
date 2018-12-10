@@ -13,7 +13,9 @@ export class ButtonComponent {
 
   constructor(private router: Router) { }
 
-  onClick(_event: Event) {
+  onClick(event: Event) {
+    event.stopPropagation();
+
     if (this.to) {
       this.router.navigateByUrl(this.to);
     }

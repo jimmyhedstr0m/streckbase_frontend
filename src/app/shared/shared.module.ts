@@ -5,6 +5,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { PrettyDatePipe } from "./pretty-date.pipe";
 
+import { AutofocusDirective } from "./auto-focus.directive";
+
 import { ActionBarComponent } from "./action-bar/action-bar.component";
 import { ButtonComponent } from "./button/button.component";
 import { HiddenInputComponent } from "./hidden-input/hidden-input.component";
@@ -23,6 +25,7 @@ import { ModalService } from "./modal/modal.service";
     FontAwesomeModule
   ],
   declarations: [
+    AutofocusDirective,
     ActionBarComponent,
     ButtonComponent,
     HiddenInputComponent,
@@ -37,6 +40,7 @@ import { ModalService } from "./modal/modal.service";
     CommonModule,
     FormsModule,
     FontAwesomeModule,
+    AutofocusDirective,
     ActionBarComponent,
     ButtonComponent,
     HiddenInputComponent,

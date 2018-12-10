@@ -1,26 +1,36 @@
-import { Component } from "@angular/core";
-// import { Router } from "@angular/router";
+import { Component, ViewChild, HostListener } from "@angular/core";
+import { Router } from "@angular/router";
+
+import { AutofocusDirective } from "./../auto-focus.directive";
+import { environment } from "./../../../environments/environment";
 
 @Component({
   selector: "app-hidden-input",
   template: `
-    <input [(ngModel)]="barcode" (ngModelChange)="onChange($event)" />
+    <input appAutofocus [(ngModel)]="barcode" (ngModelChange)="onChange($event)" [hidden]="hidden" />
   `,
   styleUrls: ["./hidden-input.component.scss"]
 })
 export class HiddenInputComponent {
-  barcode: string;
+  @ViewChild(AutofocusDirective) autofocus: AutofocusDirective;
+  private oldValue: string;
+  public barcode: string;
+  public hidden: boolean = environment.production;
 
-  onChange(val) {
-    console.log('val', val);
+  constructor(private router: Router) { }
+
+  @HostListener("document:click", ["$event.target"])
+  onDocumentClick() {
+    if (this.autofocus) {
+      this.autofocus.focus();
+    }
   }
 
-  // constructor(private router: Router) { }
-
-  // onClick(_event: Event) {
-  //   if (this.to) {
-  //     this.router.navigateByUrl(this.to);
-  //   }
-  // }
+  onChange(newValue: string) {
+    if (newValue && newValue !== this.oldValue) {
+      this.oldValue = newValue;
+      this.router.navigate(["/items/barcodes", newValue]);
+    }
+  }
 
 }
