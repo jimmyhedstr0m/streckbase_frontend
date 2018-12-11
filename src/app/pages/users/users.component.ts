@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { Router } from "@angular/router";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { UsersService } from "./users.service";
 
@@ -15,7 +16,7 @@ export class UsersComponent implements OnInit {
   public xlobare: User[];
   public faChevronLeft = faChevronLeft;
 
-  constructor(private usersService: UsersService) { }
+  constructor(private router: Router, private usersService: UsersService) { }
 
   ngOnInit() {
     this.usersService.getUsers()
@@ -23,6 +24,10 @@ export class UsersComponent implements OnInit {
         this.lobare = users.filter((user: User) => user.lobare);
         this.xlobare = users.filter((user: User) => !user.lobare).reverse();
       });
+  }
+
+  onValueChange(value: string) {
+    this.router.navigate(["/items/barcodes", value]);
   }
 
 }

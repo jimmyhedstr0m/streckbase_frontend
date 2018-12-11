@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="derp"></div>
+    <div class="fill"></div>
   </div>
 
   <app-action-bar position="right">
@@ -20,4 +20,4 @@
   </app-action-bar>
 </div>
 
-<app-hidden-input></app-hidden-input>
+<app-hidden-input (onValueChange)="onValueChange($event)"></app-hidden-input>

@@ -2,11 +2,14 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Params } from "@angular/router";
 import { Subscription } from "rxjs/internal/Subscription";
 import { switchMap } from "rxjs/internal/operators/switchMap";
+import { throwError } from "rxjs/internal/observable/throwError";
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 
+import { ItemService } from "./../item/item.service";
 import { UserService } from "./user.service";
 
+import { Item } from "./../../types/item";
 import { User } from "./../../types/user";
 
 @Component({
@@ -20,7 +23,11 @@ export class UserComponent implements OnInit {
   public faChevronLeft = faChevronLeft;
   public faHome = faHome;
 
-  constructor(private route: ActivatedRoute, private userService: UserService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private itemService: ItemService,
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
     this.routeSubscription = this.route.params
@@ -37,6 +44,28 @@ export class UserComponent implements OnInit {
 
   ngOnDestroy() {
     this.routeSubscription.unsubscribe();
+  }
+
+  buy(barcode: string) {
+    this.itemService.getBarcodeItem(barcode)
+      .pipe(
+        switchMap((item: Item) => {
+          if (!item) return throwError("No matching item");
+
+          return this.userService.purchaseItem(this.user.id, item);
+        }),
+        switchMap(() => this.userService.getUser(this.user.id))
+      )
+      .subscribe(
+        (user: User) => {
+
+          this.user = user;
+        },
+        (err: any) => {
+          // what to do here?
+          console.log("error", err);
+        }
+      )
   }
 
 }
