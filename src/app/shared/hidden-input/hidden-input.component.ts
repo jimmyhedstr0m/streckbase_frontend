@@ -8,7 +8,7 @@ import { AutofocusDirective } from "./../auto-focus.directive";
     <input
       appAutofocus
       [(ngModel)]="barcode"
-      (ngModelChange)="onChange($event)" />
+      (keyup.enter)="onChange()" />
 
     <div *ngIf="flashing" class="flash"></div>
   `,
@@ -30,10 +30,10 @@ export class HiddenInputComponent {
     }
   }
 
-  onChange(value: string) {
-    if (value && !this.flashing) {
+  onChange() {    
+    if (this.barcode && !this.flashing) {
       this.flashing = true;
-      this.onValueChange.emit(value);
+      this.onValueChange.emit(this.barcode);
 
       setTimeout(() => {
         this.barcode = "";
