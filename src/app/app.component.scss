@@ -1,8 +1,19 @@
 @import "src/assets/styles/_variables";
 
 .container {
-  // padding-top: calc(#{size("header")} + #{size("gutter--huge")});
-  // padding-top: size("header");
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  height: size("header");
+}
+
+.content {
+  height: 100%;
+  flex-grow: 0;
+  overflow: hidden;
 }
 
 .gradient {

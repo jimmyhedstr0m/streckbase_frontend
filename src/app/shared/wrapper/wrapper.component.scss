@@ -2,10 +2,12 @@
 
 .wrapper {
   width: 100%;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: size("gutter--huge");
+  padding-right: size("gutter--huge");
+  overflow-x: hidden;
 
   @media (min-width: breakpoint("mini")) {
     width: breakpoint("mini");
@@ -26,4 +28,8 @@
   @media (min-width: breakpoint("large")) {
     width: breakpoint("large");
   }
+}
+
+.footer-padding {
+  padding-bottom: size("footer");
 }

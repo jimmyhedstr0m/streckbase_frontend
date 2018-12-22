@@ -1,12 +1,14 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
   selector: "app-wrapper",
   template: `
-    <div class="wrapper">
+    <div class="wrapper" [class.footer-padding]="hasFooter">
       <ng-content></ng-content>
     </div>
   `,
   styleUrls: ["./wrapper.component.scss"]
 })
-export class WrapperComponent { }
+export class WrapperComponent {
+  @Input() hasFooter: boolean = false;
+}

@@ -3,9 +3,10 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs/internal/Subscription";
 import { switchMap } from "rxjs/operators";
 import { throwError } from "rxjs/internal/observable/throwError";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faCocktail } from "@fortawesome/free-solid-svg-icons";
 
 import { appConfig } from "./../../app.config";
+import { environment } from "./../../../environments/environment";
 import { ItemService } from "./item.service";
 import { Item } from "../../types/item";
 
@@ -17,6 +18,7 @@ import { Item } from "../../types/item";
 export class ItemComponent implements OnInit, OnDestroy {
   private routeSubscription: Subscription;
   public faChevronLeft = faChevronLeft;
+  public faCocktail = faCocktail;
   private timer: any;
   public item: Item;
 
@@ -47,6 +49,7 @@ export class ItemComponent implements OnInit, OnDestroy {
         (item: Item) => {
           console.log("item", item);
           this.item = item;
+          // this.item.imageUrl = item.imageUrl ? environment.apiUrl + item.imageUrl : null;
         },
         (err: any) => {
           console.log("Error", err);

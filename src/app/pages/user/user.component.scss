@@ -3,10 +3,8 @@
 $gutter: 2rem;
 
 .container {
-  padding-top: size("header");
   padding-left: size("gutter--huge");
   padding-right: size("gutter--huge");
-  padding-bottom: size("footer");
 }
 
 .overlay {

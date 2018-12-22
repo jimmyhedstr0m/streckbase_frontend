@@ -1,7 +1,27 @@
 <app-wrapper>
-  <div *ngIf="item" class="temp">
-    Produkt:
-    <div>{{ item.name }} {{ item.alcohol }}% {{ item.price | currency: "SEK": "symbol":"1.0-0" }}</div>
+  <div class="container">
+    <div *ngIf="item" class="row">
+      <div class="column left">
+        <div class="label">
+          Artikel
+        </div>
+
+        <div class="title">
+          {{ item.name }}
+        </div>
+
+        <div class="price">{{ item.price | currency: "SEK": "symbol":"1.0-0" }}</div>
+      </div>
+
+      <div class="column right">
+        <div class="image-container">
+          <img *ngIf="item.imageUrl" class="item-image" [src]="item.imageUrl">
+          <div *ngIf="!item.imageUrl" class="image-placeholder">
+            <fa-icon [icon]="faCocktail" size="6x"></fa-icon>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <app-action-bar [background]="true" position="left">
@@ -12,31 +32,3 @@
 </app-wrapper>
 
 <app-hidden-input (onValueChange)="onValueChange($event)"></app-hidden-input>
-
-<!-- <div class="row block">
-
-  <div class="col col-3">
-    <div class="image-container">
-      <img class="blur" src="http://localhost:3000/punk.png" />
-      <img class="product" src="http://localhost:3000/punk.png" />
-    </div>
-  </div>
-
-  <div class="col col-9">
-    <app-button (click)="openModal()">Open modal</app-button>
-  </div>
-
-
-  <div>item</div>
-  <div *ngIf="item">
-    <div>{{ item.name }} {{ item.alcohol }}% {{ item.price | currency: "SEK": "symbol":"1.0-0" }}</div>
-
-    <div>
-      <img *ngIf="itemImage" [src]="itemImage" />
-    </div>
-  </div>
-</div>
-
-<app-modal [(show)]="showModal">
-  This is a modal
-</app-modal> -->
