@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Router } from "@angular/router";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
+import { appConfig } from "./../../app.config";
 import { UsersService } from "./users.service";
 
 import { User } from "./../../types/user";
@@ -13,16 +14,15 @@ import { User } from "./../../types/user";
 })
 export class UsersComponent implements OnInit, OnDestroy {
   private timer: any;
-  private time: number = 20000;
   public lobare: User[];
   public xlobare: User[];
   public faChevronLeft = faChevronLeft;
 
   constructor(private router: Router, private usersService: UsersService) { }
 
-
   ngOnInit() {
     this.setTimer();
+
     this.usersService.getUsers()
       .subscribe((users: User[]) => {
         this.lobare = users.filter((user: User) => user.lobare);
@@ -42,11 +42,11 @@ export class UsersComponent implements OnInit, OnDestroy {
   }
 
   private setTimer() {
-    this.timer = setTimeout(() => this.router.navigateByUrl("/"), this.time);
+    this.timer = setTimeout(() => this.router.navigateByUrl("/"), appConfig.defaultTime);
   }
 
-  onValueChange(value: string) {
-    this.router.navigate(["/items/barcodes", value]);
+  onValueChange(barcode: string) {
+    this.router.navigate(["/items/barcodes", barcode]);
   }
 
 }

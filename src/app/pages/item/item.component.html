@@ -3,6 +3,8 @@
   <div>{{ item.name }} {{ item.alcohol }}% {{ item.price | currency: "SEK": "symbol":"1.0-0" }}</div>
 </div>
 
+<app-hidden-input (onValueChange)="onValueChange($event)"></app-hidden-input>
+
 <!-- <div class="row block">
 
   <div class="col col-3">

@@ -6,6 +6,7 @@ import { throwError } from "rxjs/internal/observable/throwError";
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 
+import { appConfig } from "./../../app.config";
 import { ItemService } from "./../item/item.service";
 import { UserService } from "./user.service";
 
@@ -20,7 +21,6 @@ import { User } from "./../../types/user";
 export class UserComponent implements OnInit {
   private routeSubscription: Subscription;
   private timer: any;
-  private time: number = 20000;
   public user: User;
   public faChevronLeft = faChevronLeft;
   public faHome = faHome;
@@ -60,7 +60,7 @@ export class UserComponent implements OnInit {
   }
 
   private setTimer() {
-    this.timer = setTimeout(() => this.router.navigateByUrl("/"), this.time);
+    this.timer = setTimeout(() => this.router.navigateByUrl("/"), appConfig.defaultTime);
   }
 
   buy(barcode: string) {
