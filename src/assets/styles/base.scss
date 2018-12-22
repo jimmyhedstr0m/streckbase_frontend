@@ -67,3 +67,11 @@ ul {
   padding: 0;
   list-style-type: none;
 }
+
+*::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
