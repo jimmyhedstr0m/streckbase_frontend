@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Router } from "@angular/router";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -11,19 +11,38 @@ import { User } from "./../../types/user";
   templateUrl: "./users.component.html",
   styleUrls: ["./users.component.scss"]
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, OnDestroy {
+  private timer: any;
+  private time: number = 20000;
   public lobare: User[];
   public xlobare: User[];
   public faChevronLeft = faChevronLeft;
 
   constructor(private router: Router, private usersService: UsersService) { }
 
+
   ngOnInit() {
+    this.setTimer();
     this.usersService.getUsers()
       .subscribe((users: User[]) => {
         this.lobare = users.filter((user: User) => user.lobare);
         this.xlobare = users.filter((user: User) => !user.lobare).reverse();
       });
+  }
+
+  ngOnDestroy() {
+    this.clearTimer();
+  }
+
+  private clearTimer() {
+    if (this.timer) {
+      clearTimeout(this.timer);
+      this.timer = null;
+    }
+  }
+
+  private setTimer() {
+    this.timer = setTimeout(() => this.router.navigateByUrl("/"), this.time);
   }
 
   onValueChange(value: string) {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Subscription } from "rxjs/internal/Subscription";
 import { switchMap } from "rxjs/internal/operators/switchMap";
 import { throwError } from "rxjs/internal/observable/throwError";
@@ -19,17 +19,22 @@ import { User } from "./../../types/user";
 })
 export class UserComponent implements OnInit {
   private routeSubscription: Subscription;
+  private timer: any;
+  private time: number = 20000;
   public user: User;
   public faChevronLeft = faChevronLeft;
   public faHome = faHome;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private itemService: ItemService,
     private userService: UserService
   ) { }
 
   ngOnInit() {
+    this.setTimer();
+
     this.routeSubscription = this.route.params
       .pipe(
         switchMap((params: Params) => {
@@ -43,10 +48,25 @@ export class UserComponent implements OnInit {
   }
 
   ngOnDestroy() {
+    this.clearTimer();
     this.routeSubscription.unsubscribe();
   }
 
+  private clearTimer() {
+    if (this.timer) {
+      clearTimeout(this.timer);
+      this.timer = null;
+    }
+  }
+
+  private setTimer() {
+    this.timer = setTimeout(() => this.router.navigateByUrl("/"), this.time);
+  }
+
   buy(barcode: string) {
+    this.clearTimer();
+    this.setTimer();
+
     this.itemService.getBarcodeItem(barcode)
       .pipe(
         switchMap((item: Item) => {
