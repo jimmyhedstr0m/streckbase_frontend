@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs/internal/Subscription";
 import { switchMap } from "rxjs/operators";
 import { throwError } from "rxjs/internal/observable/throwError";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { appConfig } from "./../../app.config";
 import { ItemService } from "./item.service";
@@ -15,9 +16,9 @@ import { Item } from "../../types/item";
 })
 export class ItemComponent implements OnInit, OnDestroy {
   private routeSubscription: Subscription;
+  public faChevronLeft = faChevronLeft;
   private timer: any;
   public item: Item;
-  // public showModal: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -79,9 +80,4 @@ export class ItemComponent implements OnInit, OnDestroy {
 
     this.item = null;
   }
-
-  // openModal() {
-  //   this.showModal = true;
-  // }
-
 }

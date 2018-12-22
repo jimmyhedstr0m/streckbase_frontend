@@ -3,7 +3,7 @@ import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Subscription } from "rxjs/internal/Subscription";
 import { switchMap } from "rxjs/internal/operators/switchMap";
 import { throwError } from "rxjs/internal/observable/throwError";
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 import { appConfig } from "./../../app.config";
