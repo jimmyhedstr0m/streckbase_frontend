@@ -71,10 +71,12 @@ ul {
 
 *::-webkit-scrollbar {
   background-color: transparent;
+  width: 0px;
 }
 
 *::-webkit-scrollbar-thumb {
   background-color: transparent;
+  width: 0px;
 }
 
 button {

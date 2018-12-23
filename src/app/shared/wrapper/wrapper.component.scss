@@ -1,8 +1,11 @@
 @import "src/assets/styles/_variables";
 
-.wrapper {
-  width: 100%;
+.scroll-container {
   height: 100%;
+  overflow-y: auto;
+}
+
+.wrapper {
   margin-left: auto;
   margin-right: auto;
   padding-left: size("gutter--huge");

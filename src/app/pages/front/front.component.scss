@@ -47,14 +47,16 @@
   max-width: 25%;
 }
 
+
+.help-list {
+  margin-top: .25rem;
+}
+
 .list-label {
   font-size: 1em;
   color: color("background");
   font-weight: bold;
-}
-
-.help-list {
-  margin-top: .25rem;
+  margin-bottom: .25rem;
 }
 
 .price-row {

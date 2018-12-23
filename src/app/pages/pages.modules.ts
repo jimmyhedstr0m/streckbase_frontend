@@ -7,6 +7,7 @@ import { SharedModule } from "./../shared";
 import { AddComponent } from "./add/add.component";
 import { FrontComponent } from "./front/front.component";
 import { ItemComponent } from "./item/item.component";
+import { PartyComponent } from "./party/party.component";
 import { UserComponent } from "./user/user.component";
 import { UsersComponent } from "./users/users.component";
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: "add", component: AddComponent },
   { path: "items/:id", component: ItemComponent },
   { path: "items/barcodes/:barcode", component: ItemComponent },
+  { path: "party", component: PartyComponent },
   { path: "users", component: UsersComponent },
   { path: "users/:id", component: UserComponent }
 ];
@@ -29,6 +31,7 @@ const routes: Routes = [
     AddComponent,
     FrontComponent,
     ItemComponent,
+    PartyComponent,
     UserComponent,
     UsersComponent
   ],
