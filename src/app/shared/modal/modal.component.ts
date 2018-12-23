@@ -15,9 +15,8 @@ export class ModalComponent implements OnChanges {
   constructor(private modalService: ModalService) { }
 
   ngOnChanges(changes: any) {
-    if (changes && changes.show) {
-      console.log(changes.show);
-      this.toggle(changes.show.currentValue);
+    if (changes && changes.show && changes.show.currentValue) {
+      this.toggle(true);
     }
   }
 

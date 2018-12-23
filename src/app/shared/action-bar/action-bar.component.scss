@@ -1,5 +1,7 @@
 @import "src/assets/styles/_variables";
 
+$childGutter: 3rem;
+
 .action-container {
   display: flex;
   position: fixed;
@@ -34,5 +36,16 @@
     // background-image: linear-gradient(to bottom, transparent, #000);
     // transform: translateZ(0);
     // backdrop-filter: blur(2px); 
+  }
+}
+
+.action-children {
+  display: flex;
+  margin-left: -$childGutter/2;
+  margin-right: -$childGutter/2;
+
+  app-button {
+    margin-left: $childGutter/2;
+    margin-right: $childGutter/2;
   }
 }

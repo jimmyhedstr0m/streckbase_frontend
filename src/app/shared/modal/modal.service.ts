@@ -14,7 +14,6 @@ export class ModalService {
   open(modal: ModalComponent) {
     this.modalsQueue.push(modal);
     this.modalsSubject.next(this.modalsQueue);
-    console.log("open", modal);
   }
 
   getModals(): Observable<ModalComponent[]> {

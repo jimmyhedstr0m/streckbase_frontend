@@ -26,7 +26,6 @@ export class ModalContainerComponent implements OnInit, OnDestroy {
     this.modalsSubscription = this.modalService.getModals()
       .subscribe((modals: ModalComponent[]) => {
         this.modals = modals;
-        console.log(modals);
       });
   }
 
@@ -34,8 +33,11 @@ export class ModalContainerComponent implements OnInit, OnDestroy {
     this.modalsSubscription.unsubscribe();
   }
 
-  close(modal?: ModalComponent) {
-    this.modalService.close(modal);
+  close() {
+    if (this.modals.length > 0) {
+      const modal: ModalComponent = this.modals[this.modals.length - 1];
+      modal.toggle(false);
+    }
   }
 
 }

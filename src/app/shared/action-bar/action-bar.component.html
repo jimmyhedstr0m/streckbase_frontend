@@ -1,4 +1,6 @@
 <footer class="action-container" [class.flex-end]="position === 'right'" [class.flex-start]="position === 'left'"
   [class.flex-center]="position === 'center'" [class.between]="position === 'between'" [class.bg]="background">
-  <ng-content></ng-content>
+  <div class="action-children">
+    <ng-content></ng-content>
+  </div>
 </footer>
