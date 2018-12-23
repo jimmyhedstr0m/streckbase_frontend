@@ -18,4 +18,8 @@ export class UserService {
   purchaseItem(userId: string, item: Item): Observable<User> {
     return this.http.post<User>(`${environment.apiUrl}/users/${userId}/purchases`, item);
   }
+
+  deletePurchase(userId: string, purchaseId: number): Observable<any> {
+    return this.http.delete<User>(`${environment.apiUrl}/users/${userId}/purchases/${purchaseId}`);
+  }
 }

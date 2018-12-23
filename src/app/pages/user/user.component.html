@@ -17,26 +17,30 @@
       </div>
     </div>
 
-    <div class="left-column">
-      <ul class="list">
-        <li *ngFor="let purchase of user.purchases" class="item">
-          <div class="name">
-            {{ purchase.item.name }}
-          </div>
-          <div class="event">
-            <span class="item-date">
-              {{ purchase.date | prettyDate }}
-            </span>
-            <span class="price">
-              {{purchase.item.price}} kr
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
+    <div class="row">
+      <div class="left-column">
+        <ul class="list">
+          <li *ngFor="let purchase of user.purchases" class="item" [class.selected]="purchase === purchaseItem" (click)="selectPurchase(purchase)">
+            <div class="name">
+              {{ purchase.item.name }}
+            </div>
+            <div class="event">
+              <span class="item-date">
+                {{ purchase.date | prettyDate }}
+              </span>
+              <span class="price">
+                {{purchase.item.price}} kr
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
 
-    <div class="right-column">
-
+      <div *ngIf="purchaseItem" class="right-column">
+        <div class="purchase-title">{{ purchaseItem.item.name }}</div>
+        <div class="purchase-text">Du köpte denna artikel för {{ purchaseItem.date | prettyDate }}</div>
+        <app-button *ngIf="dateValid" modifiers="normal light" (click)="undoClick()">Ångra köp?</app-button>
+      </div>
     </div>
   </div>
 
@@ -52,4 +56,13 @@
 
 <app-modal title="Hög skuld!" [(show)]="showDebtWarning">
   Din skuld är hög. Överväg att betala av snarast
+</app-modal>
+
+<app-modal title="Fel" [(show)]="showError">
+  <div>{{ kindMessage }}</div>
+  <pre class="error-message">{{ errorMessage }}</pre>
+</app-modal>
+
+<app-modal [allowOutsideClick]="false" title="Säker?" [(show)]="showUndoConfirmation" (action)="undoPurchase()">
+  <div>Säker på att du vill ångra köp?</div>
 </app-modal>

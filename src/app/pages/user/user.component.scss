@@ -2,6 +2,12 @@
 
 $gutter: 2rem;
 
+.row {
+  display: flex;
+  margin-left: -$gutter/2;
+  margin-right: -$gutter/2;
+}
+
 .title-row {
   display: flex;
 }
@@ -37,18 +43,27 @@ $gutter: 2rem;
 
 .left-column {
   width: 40%;
+  padding: 0 $gutter/2;
+  margin-top: $gutter;
+}
+
+.right-column {
+  width: 60%;
+  padding: 0 $gutter/2;
+  margin-top: $gutter;
 }
 
 .list {
   width: 100%;
-  margin-top: 2rem;
 }
 
 .item {
   width: 100%;
+  cursor: pointer;
+  padding: 1rem;
 
-  &:not(:last-child) {
-    margin-bottom: 1.5rem;
+  &.selected {
+    background-color: color("border");
   }
 }
 
@@ -77,4 +92,22 @@ $gutter: 2rem;
     text-align: right;
     color: color("text--dark");
   }
+}
+
+.purchase-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  color: color("cool-red");
+}
+
+.purchase-text {
+  margin-top: .25rem;
+  text-align: center;
+  color: color("text--dark");
+  margin-bottom: size("gutter--extreme");
+}
+
+.error-message {
+  white-space: normal;
 }

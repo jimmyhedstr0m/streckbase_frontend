@@ -1,7 +1,7 @@
 <ng-template #template>
   <div class="modal-header">
     <span class="title">{{ title }}</span>
-    <button class="close-button" (click)="actionClick($event)">
+    <button *ngIf="allowOutsideClick" class="close-button" (click)="outsideClick($event)">
       <fa-icon [icon]="faTimes" size="2x"></fa-icon>
     </button>
   </div>
@@ -9,6 +9,6 @@
     <ng-content></ng-content>
   </div>
   <div class="modal-footer">
-    <button class="ok-button" (click)="actionClick($event)">OK</button>
+    <app-button modifiers="normal" (click)="actionClick($event)">OK</app-button>
   </div>
 </ng-template>

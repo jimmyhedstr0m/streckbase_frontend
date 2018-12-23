@@ -12,19 +12,6 @@ $gutter: 2rem;
   padding-bottom: size("footer");
 }
 
-.overlay {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: linear-gradient(to bottom, transparent 90%, #000);
-  z-index: 2;
-  opacity: .5;
-}
-
 .label {
   color: color("cool-red");
   font-size: 1.5rem;

@@ -35,16 +35,31 @@ $color: #fff;
   border-color: transparent;
   color: $color;
   box-shadow: 0px 2px 10px 3px rgba(0, 0, 0, 0.1);
-  // background-color: #ff2d55;
-  // padding: 0 2em;
   height: $height;
   width: $width;
 
   &.primary {
-    //background-color: color("primary");
     background-color: #fff;
     color: color("background");
     box-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.4);
+  }
+
+  &.normal {
+    padding: .75rem 1.5rem;
+    font-weight: bold;
+    border: 1px solid color("border");
+    border-radius: 4px;
+    background-color: color("background");
+    color: color("text");
+    box-shadow: unset;
+    width: unset;
+    height: unset;
+    border-radius: 0;
+  }
+
+  &.light {
+    color: color("background");
+    background-color: #fff;
   }
 
 }

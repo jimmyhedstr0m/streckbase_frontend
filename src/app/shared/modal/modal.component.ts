@@ -12,6 +12,7 @@ export class ModalComponent implements OnChanges {
   @ViewChild("template") template: TemplateRef<any>;
   @Input() show: boolean = false;
   @Input() title: string = "";
+  @Input() allowOutsideClick: boolean = true;
   @Output() showChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() action: EventEmitter<Event> = new EventEmitter<Event>();
   public faTimes = faTimes;
@@ -40,6 +41,12 @@ export class ModalComponent implements OnChanges {
       this.action.emit(event);
     } else {
       this.toggle(false);
+    }
+  }
+
+  outsideClick(event: Event) {
+    if (this.allowOutsideClick) {
+      this.actionClick(event);
     }
   }
 

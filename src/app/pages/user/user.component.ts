@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { HttpErrorResponse } from "@angular/common/http";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Subscription } from "rxjs/internal/Subscription";
 import { switchMap } from "rxjs/internal/operators/switchMap";
@@ -11,6 +12,7 @@ import { ItemService } from "./../item/item.service";
 import { UserService } from "./user.service";
 
 import { Item } from "./../../types/item";
+import { Purchase } from "./../../types/purchase";
 import { User } from "./../../types/user";
 
 @Component({
@@ -22,8 +24,15 @@ export class UserComponent implements OnInit {
   private routeSubscription: Subscription;
   private timer: any;
   private debtTreshold: number = 2000;
+  private undoTreshold: number = 864000000; // 1 day in ms;
   public user: User;
+  public kindMessage: string;
+  public errorMessage: string;
   public showDebtWarning: boolean = false;
+  public showError: boolean = false;
+  public showUndoConfirmation: boolean = false;
+  public dateValid: boolean = false;
+  public purchaseItem: Purchase;
   public faChevronLeft = faChevronLeft;
   public faHome = faHome;
 
@@ -69,6 +78,8 @@ export class UserComponent implements OnInit {
   buy(barcode: string) {
     this.clearTimer();
     this.setTimer();
+    this.purchaseItem = null;
+    this.dateValid = false;
 
     this.itemService.getBarcodeItem(barcode)
       .pipe(
@@ -81,14 +92,44 @@ export class UserComponent implements OnInit {
       )
       .subscribe(
         (user: User) => {
-
           this.user = user;
         },
-        (err: any) => {
-          // what to do here?
-          console.log("error", err);
+        (_err: HttpErrorResponse) => {
+          this.kindMessage = "Köpet kunde inte genomföras för att artikeln inte finns i systemet";
+          this.showError = true;
         }
       )
+  }
+
+  selectPurchase(purchase: Purchase) {
+    this.purchaseItem = purchase;
+    this.dateValid = new Date().getTime() - new Date(purchase.date).getTime() <= this.undoTreshold;
+  }
+
+  undoClick() {
+    this.showUndoConfirmation = true;
+  }
+
+  undoPurchase() {
+    this.userService.deletePurchase(this.user.id, this.purchaseItem.id)
+      .pipe(
+        switchMap(() => {
+          return this.userService.getUser(this.user.id);
+        })
+      )
+      .subscribe(
+        (user: User) => {
+          this.user = user;
+        },
+        (err: HttpErrorResponse) => {
+          this.kindMessage = "Köpet kunde inte ångras";
+          this.errorMessage = err.message;
+          this.showError = true;
+        });
+
+    this.dateValid = false;
+    this.purchaseItem = null;
+    this.showUndoConfirmation = false;
   }
 
 }

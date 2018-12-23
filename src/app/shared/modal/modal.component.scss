@@ -48,9 +48,11 @@
 }
 
 .modal-content {
-  padding: size("gutter");
+  margin: size("gutter");
   overflow-y: auto;
   color: color("background");
+  text-overflow: ellipsis;
+  overflow-x: hidden;
 }
 
 .modal-footer {
@@ -71,13 +73,4 @@
   &:hover {
     color: color("cool-red");
   }
-}
-
-.ok-button {
-  padding: .75rem 1.5rem;
-  font-weight: bold;
-  border: 1px solid color("border");
-  border-radius: 4px;
-  background-color: color("background");
-  color: color("text");
 }

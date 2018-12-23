@@ -36,11 +36,13 @@ export class ModalContainerComponent implements OnInit, OnDestroy {
   }
 
   close(event?: Event) {
-    console.log('close', this.modals);
     if (this.modals.length > 0) {
       const modal: ModalComponent = this.modals[this.modals.length - 1];
-      modal.toggle(false);
-      modal.actionClick(event);
+
+      if (modal.allowOutsideClick) {
+        modal.toggle(false);
+        modal.actionClick(event);
+      }
     }
   }
 
