@@ -21,7 +21,9 @@ import { User } from "./../../types/user";
 export class UserComponent implements OnInit {
   private routeSubscription: Subscription;
   private timer: any;
+  private debtTreshold: number = 2000;
   public user: User;
+  public showDebtWarning: boolean = false;
   public faChevronLeft = faChevronLeft;
   public faHome = faHome;
 
@@ -44,6 +46,7 @@ export class UserComponent implements OnInit {
       .subscribe((user: User) => {
         console.log(user);
         this.user = user;
+        this.showDebtWarning = this.user.debt >= this.debtTreshold;
       });
   }
 

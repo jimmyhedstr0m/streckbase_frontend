@@ -12,7 +12,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUser(userId: string): Observable<User> {
-    return this.http.get<User>(`${environment.apiUrl}/users/${userId}/purchases?limit=10`);
+    return this.http.get<User>(`${environment.apiUrl}/users/${userId}/purchases?limit=20`);
   }
 
   purchaseItem(userId: string, item: Item): Observable<User> {

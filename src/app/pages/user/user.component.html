@@ -1,43 +1,45 @@
 <app-wrapper>
-  <div class="container">
-    <!-- <div class="overlay"></div> -->
-    <div *ngIf="user" class="inner">
-      <div class="title-row">
-        <div class="user-card">
-          <app-user-card [user]="user" [includeName]="false"></app-user-card>
-        </div>
-        <div>
-          <div class="label">
-            Användare
-          </div>
-          <div class="title">
-            {{user.firstname}} {{user.lastname}}
-          </div>
-        </div>
-        <div class="debt-container">
-          <span class="debt">{{user.debt}} kr</span>
-        </div>
+  <div *ngIf="user" class="inner">
+    <div class="title-row">
+      <div class="user-card">
+        <app-user-card [user]="user" [includeName]="false"></app-user-card>
       </div>
-
-      <div class="left-column">
-        <ul class="list">
-          <li *ngFor="let purchase of user.purchases" class="item">
-            <div>
-              <div>
-                {{purchase.item.name}}
-              </div>
-              <div>
-                {{ purchase.date | prettyDate }}
-              </div>
-            </div>
-            <span>{{purchase.item.price}} kr</span>
-          </li>
-        </ul>
+      <div>
+        <div class="label">
+          Användare
+        </div>
+        <div class="title">
+          {{user.firstname}} {{user.lastname}}
+        </div>
+        <div class="debt">
+          Skuld: {{user.debt}} kr
+        </div>
       </div>
     </div>
 
+    <div class="left-column">
+      <ul class="list">
+        <li *ngFor="let purchase of user.purchases" class="item">
+          <div class="name">
+            {{ purchase.item.name }}
+          </div>
+          <div class="event">
+            <span class="item-date">
+              {{ purchase.date | prettyDate }}
+            </span>
+            <span class="price">
+              {{purchase.item.price}} kr
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
 
+    <div class="right-column">
+
+    </div>
   </div>
+
 </app-wrapper>
 
 <app-action-bar [background]="true" position="left">
@@ -47,3 +49,7 @@
 </app-action-bar>
 
 <app-hidden-input (onValueChange)="buy($event)"></app-hidden-input>
+
+<app-modal title="Hög skuld!" [(show)]="showDebtWarning">
+  Din skuld är hög. Överväg att betala av snarast
+</app-modal>

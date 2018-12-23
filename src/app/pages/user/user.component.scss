@@ -2,31 +2,12 @@
 
 $gutter: 2rem;
 
-.container {
-  padding-left: size("gutter--huge");
-  padding-right: size("gutter--huge");
-}
-
-.overlay {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: linear-gradient(to bottom, transparent 90%, #000);
-  z-index: 2;
-  opacity: .5;
-}
-
 .title-row {
   display: flex;
 }
 
 .user-card {
-  width: 80px;
-  height: 80px;
+  width: 115px;
   margin-right: 2rem;
 }
 
@@ -49,22 +30,51 @@ $gutter: 2rem;
 }
 
 .debt {
-  font-size: 1.5rem;
-  font-weight: bold;
+  margin-top: .25rem;
+  font-size: 1.25em;
+  color: color("text--dark");
 }
 
 .left-column {
-  width: 33.33333%;
+  width: 40%;
 }
 
 .list {
-  margin-left: 116px;
-  margin-top: 1rem;
+  width: 100%;
+  margin-top: 2rem;
 }
 
 .item {
+  width: 100%;
+
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.name {
+  display: block;
+  color: color("cool-red");
+  font-weight: bold;
+  margin-bottom: .25rem;
+}
+
+.event {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 0;
-  // flex: 0 0 auto;
+  color: #fff;
+  font-size: 14px;
+
+  .item-date {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 16px;
+  }
+
+  .price {
+    flex: 0 0 auto;
+    text-align: right;
+    color: color("text--dark");
+  }
 }
