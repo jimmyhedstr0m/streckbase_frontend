@@ -28,14 +28,13 @@
         </li>
       </ul>
     </div>
-
-    <app-action-bar [background]="true" position="left">
-      <app-button label="Bakåt" modifiers="primary" to="/">
-        <fa-icon [icon]="faChevronLeft" size="2x"></fa-icon>
-      </app-button>
-    </app-action-bar>
-
   </div>
 </app-wrapper>
+
+<app-action-bar [background]="true" position="left">
+  <app-button label="Bakåt" modifiers="primary" to="/">
+    <fa-icon [icon]="faChevronLeft" size="2x"></fa-icon>
+  </app-button>
+</app-action-bar>
 
 <app-hidden-input (onValueChange)="onValueChange($event)"></app-hidden-input>

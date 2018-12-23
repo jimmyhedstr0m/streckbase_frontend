@@ -13,16 +13,17 @@
     <div class="fill"></div>
   </div>
 
-  <app-action-bar position="right">
-    <app-button label="Hjälp" modifiers="primary" (click)="onHelpClick()">
-      <fa-icon [icon]="faQuestion" size="2x"></fa-icon>
-    </app-button>
-
-    <app-button label="Användare" modifiers="primary" to="/users">
-      <fa-icon [icon]="faUsers" size="2x"></fa-icon>
-    </app-button>
-  </app-action-bar>
 </div>
+
+<app-action-bar position="right">
+  <app-button label="Hjälp" modifiers="primary" (click)="onHelpClick()">
+    <fa-icon [icon]="faQuestion" size="2x"></fa-icon>
+  </app-button>
+
+  <app-button label="Användare" modifiers="primary" to="/users">
+    <fa-icon [icon]="faUsers" size="2x"></fa-icon>
+  </app-button>
+</app-action-bar>
 
 <app-hidden-input (onValueChange)="onValueChange($event)"></app-hidden-input>
 
@@ -32,7 +33,7 @@
     <li>1. Tryck på knappen <span style="margin-right: .25rem;">
         <fa-icon [icon]="faUsers" size="1x"></fa-icon>
       </span>
-      <i>Användare</i>
+      <i>Användare</i> eller tryck mitt på klockan
     </li>
     <li>2. Scrolla och tryck på <i>ditt</i> namn i listan</li>
     <li>3. Skanna valfri vara</li>
