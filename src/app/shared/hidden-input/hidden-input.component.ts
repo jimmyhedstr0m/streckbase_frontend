@@ -30,7 +30,7 @@ export class HiddenInputComponent {
     }
   }
 
-  onChange() {    
+  onChange() {
     if (this.barcode && !this.flashing) {
       this.flashing = true;
       this.onValueChange.emit(this.barcode);

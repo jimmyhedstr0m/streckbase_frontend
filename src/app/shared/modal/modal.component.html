@@ -1,4 +1,14 @@
 <ng-template #template>
-  <div>modal</div>
-  <ng-content></ng-content>
+  <div class="modal-header">
+    <span class="title">{{ title }}</span>
+    <button class="close-button" (click)="toggle(false)">
+      <fa-icon [icon]="faTimes" size="2x"></fa-icon>
+    </button>
+  </div>
+  <div class="modal-content">
+    <ng-content></ng-content>
+  </div>
+  <div class="modal-footer">
+    <button class="ok-button" (click)="toggle(false)">OK</button>
+  </div>
 </ng-template>

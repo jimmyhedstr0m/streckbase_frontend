@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { faUsers } from "@fortawesome/free-solid-svg-icons";
-import { faQuestion } from "@fortawesome/free-solid-svg-icons";
+import { faUsers, faQuestion } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-front",
@@ -20,7 +19,6 @@ export class FrontComponent {
   }
 
   onHelpClick() {
-    console.log("help");
     this.showHelpModal = true;
   }
 }

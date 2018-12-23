@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Subscription } from "rxjs/internal/Subscription";
 
+import { AppComponent } from "./../../app.component";
 import { ModalService } from "./modal.service";
 import { ModalComponent } from "./modal.component";
 
@@ -8,8 +9,8 @@ import { ModalComponent } from "./modal.component";
   selector: "app-modal-container",
   template: `
     <div class="modals-container" [class.to-front]="modals.length > 0">
-      <div class="dim-background" (click)="close()"></div>
-      <div *ngFor="let modal of modals" class="modal-outer">
+      <div class="dim-background"></div>
+      <div *ngFor="let modal of modals" class="modal-outer" (keydown)="close()">
         <ng-container *ngTemplateOutlet="modal.template"></ng-container>
       </div>
     </div>
@@ -20,12 +21,13 @@ export class ModalContainerComponent implements OnInit, OnDestroy {
   private modalsSubscription: Subscription
   public modals: ModalComponent[] = [];
 
-  constructor(private modalService: ModalService) { }
+  constructor(private parent: AppComponent, private modalService: ModalService) { }
 
   ngOnInit() {
     this.modalsSubscription = this.modalService.getModals()
       .subscribe((modals: ModalComponent[]) => {
         this.modals = modals;
+        this.parent.blurred = this.modals.length > 0;
       });
   }
 

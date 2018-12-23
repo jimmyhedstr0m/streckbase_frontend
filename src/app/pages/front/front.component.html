@@ -26,6 +26,19 @@
 
 <app-hidden-input (onValueChange)="onValueChange($event)"></app-hidden-input>
 
-<app-modal [(show)]="showHelpModal">
-  Hjälp
+<app-modal title="Hjälp" [(show)]="showHelpModal">
+  <div class="list-label">För att strecka en artikel:</div>
+  <ul class="help-list">
+    <li>1. Tryck på knappen <span style="margin-right: .25rem;">
+        <fa-icon [icon]="faUsers" size="1x"></fa-icon>
+      </span>
+      <i>Användare</i>
+    </li>
+    <li>2. Scrolla och tryck på <i>ditt</i> namn i listan</li>
+    <li>3. Skanna valfri vara</li>
+  </ul>
+  <div class="price-row">
+    <div class="list-label">Prisförfrågan:</div>
+    <div>Skanna artikeln när som helst för att få prisuppgift</div>
+  </div>
 </app-modal>

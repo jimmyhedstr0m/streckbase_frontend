@@ -16,6 +16,10 @@
   overflow: hidden;
 }
 
+.blurred {
+  filter: blur(20px);
+}
+
 .gradient {
   position: fixed;
   height: 100vh;

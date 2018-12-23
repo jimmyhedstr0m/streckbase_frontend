@@ -1,4 +1,5 @@
 import { Component, OnChanges, Input, Output, EventEmitter, ViewChild, TemplateRef } from "@angular/core";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import { ModalService } from "./modal.service";
 
@@ -10,7 +11,9 @@ import { ModalService } from "./modal.service";
 export class ModalComponent implements OnChanges {
   @ViewChild("template") template: TemplateRef<any>;
   @Input() show: boolean = false;
+  @Input() title: string = "";
   @Output() showChange: EventEmitter<boolean> = new EventEmitter();
+  public faTimes = faTimes;
 
   constructor(private modalService: ModalService) { }
 
