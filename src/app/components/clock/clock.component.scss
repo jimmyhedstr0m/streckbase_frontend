@@ -9,10 +9,7 @@
   height: 100%;
   width: 100%;
   top: 0;
-
-
   z-index: -1;
-
   transform: skew(36deg);
   transform-origin: 0% 100%;
 }
@@ -49,10 +46,10 @@
 }
 
 .time {
-  font-size: 4rem;
+  font-size: 5em;
 }
 
 .date {
-  font-size: 1rem;
+  font-size: 1.5em;
   color: color("light-grey");
 }
