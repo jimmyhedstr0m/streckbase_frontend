@@ -1,0 +1,12 @@
+$distance: 1rem;
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY($distance); }
+  100% { opacity: 1; }
+}
+
+.slideUp {
+  animation-name: slideUp;
+  animation-duration: 200ms;
+  animation-fill-mode: forwards;
+}

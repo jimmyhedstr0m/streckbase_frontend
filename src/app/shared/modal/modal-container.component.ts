@@ -10,7 +10,7 @@ import { ModalComponent } from "./modal.component";
   template: `
     <div class="modals-container" [class.to-front]="modals.length > 0">
       <div class="dim-background" (click)="close($event)"></div>
-      <div *ngFor="let modal of modals" class="modal-outer">
+      <div *ngFor="let modal of modals" class="modal-outer slideUp">
         <ng-container *ngTemplateOutlet="modal.template"></ng-container>
       </div>
     </div>
