@@ -73,7 +73,13 @@ export class UserComponent implements OnInit {
   }
 
   private setTimer() {
-    this.timer = setTimeout(() => this.router.navigateByUrl("/"), appConfig.defaultTime);
+    this.timer = setTimeout(() => {
+      this.showHelpModal = false;
+      this.showUndoConfirmation = false;
+      this.showError = false;
+      this.showDebtWarning = false;
+      setTimeout(() => this.router.navigateByUrl("/"));
+    }, appConfig.defaultTime);
   }
 
   buy(barcode: string) {
@@ -108,6 +114,7 @@ export class UserComponent implements OnInit {
   }
 
   undoClick() {
+    this.clearTimer();
     this.showUndoConfirmation = true;
   }
 
@@ -131,9 +138,12 @@ export class UserComponent implements OnInit {
     this.dateValid = false;
     this.purchaseItem = null;
     this.showUndoConfirmation = false;
+    this.setTimer();
   }
 
   toggleHelpModal() {
+    this.clearTimer();
+    this.setTimer();
     this.showHelpModal = true;
   }
 

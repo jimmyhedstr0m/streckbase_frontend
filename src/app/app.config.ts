@@ -3,5 +3,5 @@ export interface IAppConfig {
 }
 
 export const appConfig: IAppConfig = {
-  defaultTime: 200000000
+  defaultTime: 20000
 };
