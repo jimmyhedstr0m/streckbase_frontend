@@ -21,6 +21,7 @@ export class ItemComponent implements OnInit, OnDestroy {
   public faCocktail = faCocktail;
   private timer: any;
   public item: Item;
+  public showErrorModal: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -48,11 +49,12 @@ export class ItemComponent implements OnInit, OnDestroy {
       .subscribe(
         (item: Item) => {
           console.log("item", item);
+          this.showErrorModal = false;
           this.item = item;
           // this.item.imageUrl = item.imageUrl ? environment.apiUrl + item.imageUrl : null;
         },
-        (err: any) => {
-          console.log("Error", err);
+        (_err: any) => {
+          this.showErrorModal = true;
         }
       );
   }
@@ -74,13 +76,17 @@ export class ItemComponent implements OnInit, OnDestroy {
   }
 
   onValueChange(barcode: string) {
-    if (this.item.barcodes.some((b: string) => b === barcode)) {
-      console.log('go back');
+    if (this.item && this.item.barcodes.some((b: string) => b === barcode)) {
       this.router.navigateByUrl("/");
     } else {
       this.router.navigate(["/items/barcodes", barcode]);
     }
 
     this.item = null;
+  }
+
+  goBack() {
+    this.showErrorModal = false;
+    setTimeout(() => this.router.navigateByUrl("/"));
   }
 }

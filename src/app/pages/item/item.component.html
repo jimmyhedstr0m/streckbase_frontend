@@ -32,3 +32,7 @@
 </app-wrapper>
 
 <app-hidden-input (onValueChange)="onValueChange($event)"></app-hidden-input>
+
+<app-modal title="Fel" [(show)]="showErrorModal" (action)="goBack()">
+  Artikeln kunde inte hittas
+</app-modal>

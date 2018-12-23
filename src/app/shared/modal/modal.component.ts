@@ -12,14 +12,15 @@ export class ModalComponent implements OnChanges {
   @ViewChild("template") template: TemplateRef<any>;
   @Input() show: boolean = false;
   @Input() title: string = "";
-  @Output() showChange: EventEmitter<boolean> = new EventEmitter();
+  @Output() showChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() action: EventEmitter<Event> = new EventEmitter<Event>();
   public faTimes = faTimes;
 
   constructor(private modalService: ModalService) { }
 
   ngOnChanges(changes: any) {
-    if (changes && changes.show && changes.show.currentValue) {
-      this.toggle(true);
+    if (changes && changes.show) {
+      this.toggle(changes.show.currentValue);
     }
   }
 
@@ -30,7 +31,15 @@ export class ModalComponent implements OnChanges {
     if (this.show) {
       this.modalService.open(this);
     } else {
-      this.modalService.close(this)
+      this.modalService.close(this);
+    }
+  }
+
+  actionClick(event: Event) {
+    if (this.action.observers.length > 0) {
+      this.action.emit(event);
+    } else {
+      this.toggle(false);
     }
   }
 
