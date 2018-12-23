@@ -9,6 +9,7 @@
     <ng-content></ng-content>
   </div>
   <div class="modal-footer">
-    <app-button modifiers="normal" (click)="actionClick($event)">OK</app-button>
+    <app-button *ngIf="cancelable" modifiers="normal" (click)="toggle(false)">Avbryt</app-button>
+    <app-button modifiers="normal" (click)="confirmClick($event)">OK</app-button>
   </div>
 </ng-template>

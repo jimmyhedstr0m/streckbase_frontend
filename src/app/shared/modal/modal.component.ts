@@ -12,6 +12,7 @@ export class ModalComponent implements OnChanges {
   @ViewChild("template") template: TemplateRef<any>;
   @Input() show: boolean = false;
   @Input() title: string = "";
+  @Input() cancelable: boolean = false;
   @Input() allowOutsideClick: boolean = true;
   @Output() showChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() action: EventEmitter<Event> = new EventEmitter<Event>();
@@ -36,7 +37,7 @@ export class ModalComponent implements OnChanges {
     }
   }
 
-  actionClick(event: Event) {
+  confirmClick(event: Event) {
     if (this.action.observers.length > 0) {
       this.action.emit(event);
     } else {
@@ -46,7 +47,7 @@ export class ModalComponent implements OnChanges {
 
   outsideClick(event: Event) {
     if (this.allowOutsideClick) {
-      this.actionClick(event);
+      this.confirmClick(event);
     }
   }
 

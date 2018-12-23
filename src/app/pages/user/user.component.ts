@@ -4,8 +4,7 @@ import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Subscription } from "rxjs/internal/Subscription";
 import { switchMap } from "rxjs/internal/operators/switchMap";
 import { throwError } from "rxjs/internal/observable/throwError";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faUndo, faQuestion } from "@fortawesome/free-solid-svg-icons";
 
 import { appConfig } from "./../../app.config";
 import { ItemService } from "./../item/item.service";
@@ -31,10 +30,12 @@ export class UserComponent implements OnInit {
   public showDebtWarning: boolean = false;
   public showError: boolean = false;
   public showUndoConfirmation: boolean = false;
+  public showHelpModal: boolean = false;
   public dateValid: boolean = false;
   public purchaseItem: Purchase;
   public faChevronLeft = faChevronLeft;
-  public faHome = faHome;
+  public faUndo = faUndo;
+  public faQuestion = faQuestion;
 
   constructor(
     private route: ActivatedRoute,
@@ -130,6 +131,10 @@ export class UserComponent implements OnInit {
     this.dateValid = false;
     this.purchaseItem = null;
     this.showUndoConfirmation = false;
+  }
+
+  toggleHelpModal() {
+    this.showHelpModal = true;
   }
 
 }

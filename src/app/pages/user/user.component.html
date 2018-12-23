@@ -39,16 +39,22 @@
       <div *ngIf="purchaseItem" class="right-column">
         <div class="purchase-title">{{ purchaseItem.item.name }}</div>
         <div class="purchase-text">Du köpte denna artikel för {{ purchaseItem.date | prettyDate }}</div>
-        <app-button *ngIf="dateValid" modifiers="normal light" (click)="undoClick()">Ångra köp?</app-button>
+        <app-button *ngIf="dateValid" modifiers="normal light" (click)="undoClick()">
+          <fa-icon [icon]="faUndo" size="1x"></fa-icon> Ångra köp?
+        </app-button>
       </div>
     </div>
   </div>
 
 </app-wrapper>
 
-<app-action-bar [background]="true" position="left">
+<app-action-bar [background]="true" position="between">
   <app-button label="Bakåt" modifiers="primary" to="/users">
     <fa-icon [icon]="faChevronLeft" size="2x"></fa-icon>
+  </app-button>
+
+  <app-button label="Hjälp" modifiers="primary" (click)="toggleHelpModal()">
+    <fa-icon [icon]="faQuestion" size="2x"></fa-icon>
   </app-button>
 </app-action-bar>
 
@@ -63,6 +69,21 @@
   <pre class="error-message">{{ errorMessage }}</pre>
 </app-modal>
 
-<app-modal [allowOutsideClick]="false" title="Säker?" [(show)]="showUndoConfirmation" (action)="undoPurchase()">
+<app-modal [allowOutsideClick]="false" [cancelable]="true" title="Ångra?" [(show)]="showUndoConfirmation" (action)="undoPurchase()">
   <div>Säker på att du vill ångra köp?</div>
+</app-modal>
+
+<app-modal title="Hjälp" [(show)]="showHelpModal">
+  <div class="help-label">För att köpa en artikel:</div>
+  <div>Använd streckkodsläsaren och skanna av artikelns streckkod</div>
+
+  <div class="undo-label">För att ångra ett köp:</div>
+  <div>Köp som är gjorda inom 24 timmar går att ångra. Tryck på artikeln i listan för att göra den aktiv, och klicka
+    sedan på
+    knappen
+    <span style="margin-right: .25rem;">
+      <fa-icon [icon]="faUndo" size="1x"></fa-icon>
+    </span>
+    <i>Ångra köp?</i>
+  </div>
 </app-modal>

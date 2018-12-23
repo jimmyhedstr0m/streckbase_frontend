@@ -111,3 +111,18 @@ $gutter: 2rem;
 .error-message {
   white-space: normal;
 }
+
+.help-label {
+  font-size: 1em;
+  color: color("background");
+  font-weight: bold;
+  margin-bottom: .25rem;
+}
+
+.undo-label {
+  font-size: 1em;
+  color: color("background");
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: .25rem;
+}

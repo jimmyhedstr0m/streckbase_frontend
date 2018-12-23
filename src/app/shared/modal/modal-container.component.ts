@@ -41,7 +41,7 @@ export class ModalContainerComponent implements OnInit, OnDestroy {
 
       if (modal.allowOutsideClick) {
         modal.toggle(false);
-        modal.actionClick(event);
+        modal.confirmClick(event);
       }
     }
   }

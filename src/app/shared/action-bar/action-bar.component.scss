@@ -7,11 +7,21 @@ $childGutter: 3rem;
   position: fixed;
   width: 100%;
   align-items: center;
-  padding: size("gutter--huge");
+  padding: size("gutter--huge") 0;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 1;
+}
+
+.action-children {
+  display: flex;
+  width: 100%;
+
+  app-button {
+    margin-left: $childGutter/2;
+    margin-right: $childGutter/2;
+  }
 
   &.flex-start {
     justify-content: flex-start;
@@ -26,24 +36,6 @@ $childGutter: 3rem;
   }
 
   &.between {
-    justify-content: flex-end;
-  }
-
-  &.bg {
-    // background-color: rgba(color("background"), .95);
-    // background-image: linear-gradient(to bottom, transparent, #000);
-    // transform: translateZ(0);
-    // backdrop-filter: blur(2px); 
-  }
-}
-
-.action-children {
-  display: flex;
-  margin-left: -$childGutter/2;
-  margin-right: -$childGutter/2;
-
-  app-button {
-    margin-left: $childGutter/2;
-    margin-right: $childGutter/2;
+    justify-content: space-between;
   }
 }
