@@ -54,7 +54,6 @@ export class UserComponent implements OnInit {
         })
       )
       .subscribe((user: User) => {
-        console.log(user);
         this.user = user;
         this.showDebtWarning = this.user.debt >= this.debtTreshold;
       });
