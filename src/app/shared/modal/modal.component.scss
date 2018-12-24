@@ -39,6 +39,10 @@ $gutter: .5rem;
   user-select: none;
   overflow: hidden;
   background-color: #fff;
+
+  &.hidden {
+    display: none;
+  }
 }
 
 .modal-header {

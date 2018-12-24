@@ -86,6 +86,7 @@ export class UserComponent implements OnInit {
     this.setTimer();
     this.purchaseItem = null;
     this.dateValid = false;
+    this.showUndoConfirmation = false;
 
     this.itemService.getBarcodeItem(barcode)
       .pipe(

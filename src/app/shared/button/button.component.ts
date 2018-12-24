@@ -15,8 +15,6 @@ export class ButtonComponent {
   constructor(private router: Router) { }
 
   onClick(event: Event) {
-    event.stopPropagation();
-
     if (this.click.observers.length > 0) {
       this.click.emit(event);
     }
