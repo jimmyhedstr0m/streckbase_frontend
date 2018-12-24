@@ -1,21 +1,21 @@
-<div class="block">
-  <div *ngIf="feed === undefined" class="spinner">
-    <app-spinner [show]="true"></app-spinner>
-  </div>
-
-  <ul *ngIf="feed" class="list">
-    <li *ngFor="let user of feed" class="item">
-      <div class="name">
-        {{ user.firstname }} {{ user.lastname }}
-      </div>
-      <div class="event">
-        <span class="item-name">
-          {{ user.purchases[0].item.name }}
-        </span>
-        <span class="date">
-          {{ user.purchases[0].date | prettyDate }}
-        </span>
-      </div>
-    </li>
-  </ul>
+<!-- <div class="block"> -->
+<div *ngIf="feed === undefined" class="spinner">
+  <app-spinner [show]="true"></app-spinner>
 </div>
+
+<ul *ngIf="feed">
+  <li *ngFor="let user of feed" class="item">
+    <div class="name">
+      {{ user.firstname }} {{ user.lastname }}
+    </div>
+    <div class="event">
+      <span class="item-name">
+        {{ user.purchases[0].item.name }}
+      </span>
+      <span class="date">
+        {{ user.purchases[0].date | prettyDate }}
+      </span>
+    </div>
+  </li>
+</ul>
+<!-- </div> -->
