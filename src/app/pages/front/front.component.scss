@@ -34,6 +34,7 @@
   padding-top: size("header");
   background-color: rgba(0, 0, 0, .1);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .list {

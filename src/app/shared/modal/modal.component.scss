@@ -52,6 +52,7 @@ $gutter: .5rem;
 .modal-content {
   margin: size("gutter");
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   color: color("background");
   text-overflow: ellipsis;
   overflow-x: hidden;
