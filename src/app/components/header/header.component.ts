@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private interval: number = 1000;
   private timer: any;
   private routeSubscription: Subscription;
+  public isAdminRoute: boolean = false;
   public isHomeRoute: boolean = true;
   public currentTime: Date;
 
@@ -23,6 +24,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .pipe(
         filter(event => event instanceof NavigationEnd)
       ).subscribe((event: NavigationEnd) => {
+        this.isAdminRoute = /\/admin/.test(event.urlAfterRedirects);
         this.isHomeRoute = event.urlAfterRedirects === "/";
       });
 

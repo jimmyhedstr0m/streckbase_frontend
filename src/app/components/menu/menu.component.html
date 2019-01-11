@@ -1,0 +1,12 @@
+<nav class="block">
+  <ul class="list">
+    <li *ngFor="let link of links" class="item">
+      <a class="link" [routerLink]="link.route" routerLinkActive="active">
+        <span class="icon-container">
+          <fa-icon [icon]="link.icon" size="lg"></fa-icon>
+        </span>
+        <span>{{ link.label }}</span>
+      </a>
+    </li>
+  </ul>
+</nav>

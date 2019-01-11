@@ -6,6 +6,7 @@ import { SharedModule } from "./../shared";
 import { ClockComponent } from "./clock/clock.component";
 import { FeedComponent } from "./feed/feed.component";
 import { HeaderComponent } from "./header/header.component";
+import { MenuComponent } from "./menu/menu.component";
 
 import { FeedService } from "./feed/feed.service";
 
@@ -13,7 +14,8 @@ import { FeedService } from "./feed/feed.service";
   declarations: [
     ClockComponent,
     FeedComponent,
-    HeaderComponent
+    HeaderComponent,
+    MenuComponent
   ],
   imports: [
     RouterModule,
@@ -25,7 +27,8 @@ import { FeedService } from "./feed/feed.service";
   exports: [
     ClockComponent,
     FeedComponent,
-    HeaderComponent
+    HeaderComponent,
+    MenuComponent
   ]
 })
 export class ComponentsModule { }

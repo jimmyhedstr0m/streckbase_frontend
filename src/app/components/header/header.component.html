@@ -3,6 +3,9 @@
     <h1 class="logo">
       streckbase
     </h1>
+    <div *ngIf="isAdminRoute" class="admin">
+      admin
+    </div>
   </a>
 
   <div *ngIf="!isHomeRoute" class="clock">{{ currentTime | date:"HH:mm"}}</div>

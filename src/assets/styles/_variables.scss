@@ -1,22 +1,12 @@
 $colors: (
-  "background": #131322, // done
-  // "green": #6cbb9c,
-  // "blue": #589aea,
-  // "pink": #d36290,
-  // "red": #cd4f4d,
+  "background": #131322,
   "neon-red": #FF495C,
   "cool-red": #e9445a,
-  "orange": #e06619,
-  "border": #32383D, // done
-  "text": #fff, // done,
-  "text--dark": #98989e, // done
+  "border": #32383D,
+  "text": #fff,
+  "text--dark": #98989e,
   "text--muted": #DDD4D4,
-  "header": #32383D,
-  "grey": #4C555C, // done
-  "light-grey": #A1B4C4, //done
-  "primary" : #1BC6B4,
-
-  "purple": #602a7a
+  "light-grey": #A1B4C4,
 );
 
 $breakpoints: (
@@ -38,6 +28,11 @@ $sizes: (
   "gutter--extreme": 3rem
 );
 
+$z: (
+  "overlay": 1000,
+  "system": 500
+);
+
 @function color($key) {
   @return map-get($colors, $key);
 }
@@ -48,4 +43,8 @@ $sizes: (
 
 @function size($key) {
   @return map-get($sizes, $key);
+}
+
+@function z-index($key) {
+  @return map-get($z, $key);
 }

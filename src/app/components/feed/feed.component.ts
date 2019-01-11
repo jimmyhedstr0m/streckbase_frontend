@@ -16,13 +16,8 @@ export class FeedComponent implements OnInit, OnDestroy {
   constructor(private feedService: FeedService) { }
 
   ngOnInit() {
-    console.log("init");
     this.feedSubscription = this.feedService.getFeed()
-      .subscribe((feed: User[]) => {
-
-        this.feed = feed;
-        console.log(feed);
-      });
+      .subscribe((feed: User[]) => this.feed = feed);
   }
 
   ngOnDestroy() {

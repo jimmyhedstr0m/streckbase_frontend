@@ -1,0 +1,20 @@
+@import "src/assets/styles/_variables";
+
+.container {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.menu {
+  width: 25%;
+}
+
+.content {
+  flex: 1;
+  padding: size("header") size("gutter--huge") size("gutter--huge") size("gutter--huge");
+  overflow-y: auto;
+}

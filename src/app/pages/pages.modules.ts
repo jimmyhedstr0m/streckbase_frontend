@@ -19,6 +19,7 @@ import { UsersService } from "./users/users.service";
 const routes: Routes = [
   { path: "", component: FrontComponent },
   { path: "add", component: AddComponent },
+  { path: "admin", loadChildren: "./admin/admin.module#AdminModule" },
   { path: "items/:id", component: ItemComponent },
   { path: "items/barcodes/:barcode", component: ItemComponent },
   { path: "party", component: PartyComponent },

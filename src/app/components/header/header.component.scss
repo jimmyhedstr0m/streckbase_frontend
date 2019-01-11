@@ -1,14 +1,14 @@
 @import "src/assets/styles/_variables";
 
 .header {
-  // position: fixed;
   display: flex;
+  position: relative;
   height: size("header");
   width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 0 size("gutter--huge");
-  // z-index: 1;
+  z-index: z-index("system");
 
   &.background {
     background-color: rgba(color("background"), .95);
@@ -17,11 +17,13 @@
 }
 
 .logo {
-  // padding: 4px 16px;
   color: color("text");
   font-size: 2em;
-  // background-color: #D0143D;
   margin: 0;
+}
+
+.admin {
+  color: color("cool-red");
 }
 
 .clock {
