@@ -13,6 +13,8 @@ export class UsersComponent implements OnInit, OnDestroy {
   public lobare: User[];
   public xlobare: User[];
   public faUser: IconDefinition = faUser;
+  public showNewModal: boolean = true;
+  public checked = true;
 
   constructor(private usersService: UsersService) { }
 
@@ -26,6 +28,10 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
 
+  }
+
+  onNewClick() {
+    this.showNewModal = true;
   }
 
 }

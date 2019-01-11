@@ -9,6 +9,7 @@ import { AutofocusDirective } from "./auto-focus.directive";
 
 import { ActionBarComponent } from "./action-bar/action-bar.component";
 import { ButtonComponent } from "./button/button.component";
+import { CheckboxComponent } from "./checkbox/checkbox.component";
 import { HiddenInputComponent } from "./hidden-input/hidden-input.component";
 import { ModalContainerComponent } from "./modal/modal-container.component";
 import { ModalComponent } from "./modal/modal.component";
@@ -28,6 +29,7 @@ import { ModalService } from "./modal/modal.service";
     AutofocusDirective,
     ActionBarComponent,
     ButtonComponent,
+    CheckboxComponent,
     HiddenInputComponent,
     ModalContainerComponent,
     ModalComponent,
@@ -43,6 +45,7 @@ import { ModalService } from "./modal/modal.service";
     AutofocusDirective,
     ActionBarComponent,
     ButtonComponent,
+    CheckboxComponent,
     HiddenInputComponent,
     ModalContainerComponent,
     ModalComponent,

@@ -1,0 +1,26 @@
+@import "src/assets/styles/_variables";
+
+$width: 20px;
+
+input {
+  display: none;
+}
+
+label {
+  display: flex;
+  align-items: center;
+
+  input + span {
+    display: inline-block;
+    width: $width;
+    height: $width;
+    margin-right: .5rem;
+    border: 1px solid color("border");
+  }
+
+  input {
+    &:checked + span {
+      background-color: red;
+    }
+  }
+}

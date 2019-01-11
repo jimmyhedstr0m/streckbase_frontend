@@ -3,6 +3,10 @@
 $cardWidth: 12.5%;
 $gutter: 2rem;
 
+label {
+  display: block;
+}
+
 .inner {
   padding-bottom: size("footer");
 }
