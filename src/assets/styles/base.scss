@@ -29,7 +29,6 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   background: color("background");
-  // background-image: linear-gradient($background, #000);
   color: color("text");
 }
 
@@ -83,4 +82,13 @@ button {
   border: 0;
   background-color: transparent;
   cursor: pointer;
+}
+
+input {
+  border-radius: 4px;
+  border: 1px solid color("light-grey");
+
+  &:hover {
+    border-color: color("text--dark");
+  }
 }

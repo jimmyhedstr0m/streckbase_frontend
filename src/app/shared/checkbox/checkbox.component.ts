@@ -7,7 +7,9 @@ import { faCheck, IconDefinition } from "@fortawesome/free-solid-svg-icons";
   template: `
     <label>
       <input type="checkbox" (change)="onChange($event.target.checked)" (blur)="onTouched()" [checked]="checked" />
-      <span class="box"></span>
+      <span>
+        <fa-icon [icon]="faCheck" size="md"></fa-icon>
+      </span>
       <span>{{ label }}</span>
     </label>
   `,
@@ -23,6 +25,7 @@ import { faCheck, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 export class CheckboxComponent implements ControlValueAccessor {
   @Input() checked: boolean;
   @Input() label: string;
+  public faCheck: IconDefinition = faCheck;
 
   constructor(private renderer: Renderer2, private elementRef: ElementRef) { }
 

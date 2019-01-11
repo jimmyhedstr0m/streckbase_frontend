@@ -1,6 +1,7 @@
 @import "src/assets/styles/_variables";
 
 $width: 20px;
+$time: .1s;
 
 input {
   display: none;
@@ -11,16 +12,35 @@ label {
   align-items: center;
 
   input + span {
-    display: inline-block;
+    display: flex;
     width: $width;
     height: $width;
+    justify-content: center;
+    align-items: center;
     margin-right: .5rem;
-    border: 1px solid color("border");
+    border: 1px solid color("light-grey");
+    border-radius: 4px;
+    color: #fff;
+    transition: background-color $time linear, border-color $time linear, opacity $time linear;
+
+    & > * {
+      opacity: 0;
+    }
+
+    &:hover {
+      border-color: color("text--dark");
+      cursor: pointer;
+    }
   }
 
   input {
     &:checked + span {
-      background-color: red;
+      background-color: color("neon-red");
+      border-color: transparent;
+
+      & > * {
+        opacity: 1;
+      }
     }
   }
 }
