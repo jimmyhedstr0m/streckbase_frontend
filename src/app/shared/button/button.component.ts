@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { Router } from "@angular/router";
 
 @Component({
@@ -10,15 +10,10 @@ export class ButtonComponent {
   @Input() label?: string;
   @Input() modifiers: string[] = [];
   @Input() to?: string;
-  @Output() click: EventEmitter<Event> = new EventEmitter<Event>();
 
   constructor(private router: Router) { }
 
-  onClick(event: Event) {
-    if (this.click.observers.length > 0) {
-      this.click.emit(event);
-    }
-
+  onClick(_event: Event) {
     if (this.to) {
       this.router.navigateByUrl(this.to);
     }

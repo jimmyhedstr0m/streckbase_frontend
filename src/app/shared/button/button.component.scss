@@ -6,10 +6,8 @@ $borderRadius: $height / 2;
 $color: #fff;
 
 .block {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
+  text-align: center;
 }
 
 .button {
@@ -24,7 +22,7 @@ $color: #fff;
   cursor: pointer;
   vertical-align: top;
   vertical-align: -webkit-baseline-middle;
-  transition: background-color,opacity .1s linear;
+  transition: background-color, opacity .1s linear;
   font-kerning: none;
   user-select: none;
   contain: content;
@@ -53,7 +51,13 @@ $color: #fff;
     box-shadow: unset;
     width: unset;
     height: unset;
-    border-radius: 0;
+    border-radius: 4px;
+    transition: background-color .1s linear, border-color .1s linear;
+
+    &:hover {
+      background-color: color("cool-red");
+      border-color: color("cool-red");
+    }
   }
 
   &.light {

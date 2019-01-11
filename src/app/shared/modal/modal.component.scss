@@ -33,7 +33,7 @@ $gutter: .5rem;
   display: flex;
   flex-direction: column;
   position: fixed;
-  width: 33%;
+  max-width: 50%;
   max-height: 50%;
   border-radius: 4px;
   user-select: none;

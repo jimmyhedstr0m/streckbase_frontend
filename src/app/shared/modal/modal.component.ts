@@ -1,5 +1,5 @@
 import { Component, OnChanges, Input, Output, EventEmitter, ViewChild, TemplateRef } from "@angular/core";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 import { ModalService } from "./modal.service";
 
@@ -14,9 +14,10 @@ export class ModalComponent implements OnChanges {
   @Input() title: string = "";
   @Input() cancelable: boolean = false;
   @Input() allowOutsideClick: boolean = true;
+  @Input() includeFooter: boolean = true;
   @Output() showChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() action: EventEmitter<Event> = new EventEmitter<Event>();
-  public faTimes = faTimes;
+  public faTimes: IconDefinition = faTimes;
 
   constructor(private modalService: ModalService) { }
 

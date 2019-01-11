@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { PrettyDatePipe } from "./pretty-date.pipe";
@@ -23,6 +23,7 @@ import { ModalService } from "./modal/modal.service";
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     FontAwesomeModule
   ],
   declarations: [
@@ -41,6 +42,7 @@ import { ModalService } from "./modal/modal.service";
   exports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     FontAwesomeModule,
     AutofocusDirective,
     ActionBarComponent,

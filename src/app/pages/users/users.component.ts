@@ -16,7 +16,7 @@ export class UsersComponent implements OnInit, OnDestroy {
   private timer: any;
   public lobare: User[];
   public xlobare: User[];
-  public faChevronLef: IconDefinition = faChevronLeft;
+  public faChevronLeft: IconDefinition = faChevronLeft;
 
   constructor(private router: Router, private usersService: UsersService) { }
 

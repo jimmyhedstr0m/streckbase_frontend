@@ -64,15 +64,6 @@
   Din skuld är hög. Överväg att betala av snarast
 </app-modal>
 
-<app-modal title="Fel" [(show)]="showError">
-  <div>{{ kindMessage }}</div>
-  <pre class="error-message">{{ errorMessage }}</pre>
-</app-modal>
-
-<app-modal [allowOutsideClick]="false" [cancelable]="true" title="Ångra?" [(show)]="showUndoConfirmation" (action)="undoPurchase()">
-  <div>Säker på att du vill ångra köp?</div>
-</app-modal>
-
 <app-modal title="Hjälp" [(show)]="showHelpModal">
   <div class="help-label">För att köpa en artikel:</div>
   <div>Använd streckkodsläsaren och skanna av artikelns streckkod</div>
@@ -86,4 +77,13 @@
     </span>
     <i>Ångra köp?</i>
   </div>
+</app-modal>
+
+<app-modal [allowOutsideClick]="false" [cancelable]="true" title="Ångra?" [(show)]="showUndoConfirmation" (action)="undoPurchase()">
+  <div>Säker på att du vill ångra köp?</div>
+</app-modal>
+
+<app-modal title="Fel" [(show)]="showError">
+  <div>{{ kindMessage }}</div>
+  <pre class="error-message">{{ errorMessage }}</pre>
 </app-modal>

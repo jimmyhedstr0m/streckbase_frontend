@@ -3,6 +3,7 @@ import { faUser, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 import { UsersService } from "./users.service";
 import { User } from "./../../../types/user";
+import { FormGroup, FormControl } from "@angular/forms";
 
 @Component({
   selector: "app-admin-users",
@@ -15,6 +16,13 @@ export class UsersComponent implements OnInit, OnDestroy {
   public faUser: IconDefinition = faUser;
   public showNewModal: boolean = true;
   public checked = true;
+  public userForm = new FormGroup({
+    firstname: new FormControl(""),
+    lastname: new FormControl(""),
+    id: new FormControl(""),
+    email: new FormControl(""),
+    lobare: new FormControl(true)
+  });
 
   constructor(private usersService: UsersService) { }
 
@@ -32,6 +40,27 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   onNewClick() {
     this.showNewModal = true;
+  }
+
+  submit() {
+    const {
+      email,
+      firstname,
+      id,
+      lastname,
+      lobare,
+    } = this.userForm.value;
+
+    const user: User = {
+      id,
+      firstname,
+      lastname,
+      email,
+      lobare,
+      debt: 0
+    }
+
+    this.usersService.createUser(user);
   }
 
 }

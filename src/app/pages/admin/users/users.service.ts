@@ -13,4 +13,9 @@ export class UsersService {
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${environment.apiUrl}/users?limit=1000`);
   }
+
+  createUser(user: User): Observable<User> {
+    console.log("Create user", user);
+    return null;
+  }
 }

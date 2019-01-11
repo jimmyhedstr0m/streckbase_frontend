@@ -32,39 +32,40 @@
   </app-button>
 </app-action-bar>
 
-<app-modal title="Lägg till användare" [(show)]="showNewModal">
-  <form>
+<app-modal title="Lägg till användare" [(show)]="showNewModal" [includeFooter]="false">
+  <form [formGroup]="userForm" (ngSubmit)="submit()">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="firstname">Förnamn</label>
+          <input type="text" class="form-control" id="firstname" formControlName="firstname" autocomplete="no" required>
+        </div>
 
-    <div>
-      <div class="form-group">
-        <label for="firstname">Förnamn</label>
-        <input type="text" class="form-control" id="firstname" name="firstname" autocomplete="no" required>
+        <div class="form-group">
+          <label for="lastname">Efternamn</label>
+          <input type="text" class="form-control" id="lastname" formControlName="lastname" autocomplete="no" required>
+        </div>
+
+        <div class="form-group">
+          <label for="id">Personnummer</label>
+          <input type="text" class="form-control" id="id" formControlName="id" autocomplete="no" required>
+        </div>
       </div>
 
-      <div class="form-group">
-        <label for="lastname">Efternamn</label>
-        <input type="text" class="form-control" id="lastname" name="lastname" autocomplete="no" required>
-      </div>
-
-      <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="text" class="form-control" id="email" name="email" autocomplete="no" required>
+      <div class="col">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="text" class="form-control" id="email" formControlName="email" autocomplete="no" required>
+        </div>
       </div>
     </div>
 
-    <div>
+    <div class="bottom-bar">
       <div class="form-group">
-        <label for="id">Personnummer</label>
-        <input type="text" class="form-control" id="id" name="id" autocomplete="no" required>
+        <app-checkbox label="Lobare" formControlName="lobare"></app-checkbox>
       </div>
 
-      <!-- <div class="form-group">
-        <label for="lobare">Lobare</label>
-        <input type="checkbox" id="lobare" checked>
-      </div> -->
-
-      <app-checkbox label="Lobare" [(ngModel)]="checked" name="lobare"></app-checkbox>
+      <app-button modifiers="normal" type="submit">Spara</app-button>
     </div>
-
   </form>
 </app-modal>

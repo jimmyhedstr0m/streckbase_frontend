@@ -7,6 +7,11 @@ label {
   display: block;
 }
 
+input {
+  padding: size("gutter--small");
+  margin-top: size("gutter--mini");
+}
+
 .inner {
   padding-bottom: size("footer");
 }
@@ -38,4 +43,23 @@ label {
   width: $cardWidth;
   padding: $gutter/2;
   flex: 0 0 auto;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  width: 50%;
+}
+
+.form-group:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: size("gutter--huge");
 }
