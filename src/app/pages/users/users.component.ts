@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Router } from "@angular/router";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 import { appConfig } from "./../../app.config";
 import { UsersService } from "./users.service";
@@ -16,7 +16,7 @@ export class UsersComponent implements OnInit, OnDestroy {
   private timer: any;
   public lobare: User[];
   public xlobare: User[];
-  public faChevronLeft = faChevronLeft;
+  public faChevronLef: IconDefinition = faChevronLeft;
 
   constructor(private router: Router, private usersService: UsersService) { }
 

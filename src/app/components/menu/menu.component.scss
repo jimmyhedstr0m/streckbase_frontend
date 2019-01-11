@@ -2,8 +2,7 @@
 
 .block {
   height: 100vh;
-  padding-top: size("header");
-  background-color: rgba(0, 0, 0, .1);
+  padding-top: size("header");  
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }

@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { faUsers, faQuestion } from "@fortawesome/free-solid-svg-icons";
+import { faUsers, faQuestion, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-front",
@@ -8,8 +8,8 @@ import { faUsers, faQuestion } from "@fortawesome/free-solid-svg-icons";
   styleUrls: ["./front.component.scss"]
 })
 export class FrontComponent {
-  public faUsers = faUsers;
-  public faQuestion = faQuestion;
+  public faUsers: IconDefinition = faUsers;
+  public faQuestion: IconDefinition = faQuestion;
   public showHelpModal: boolean = false;
 
   constructor(private router: Router) { }

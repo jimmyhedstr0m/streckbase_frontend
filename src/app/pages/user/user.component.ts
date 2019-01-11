@@ -4,7 +4,7 @@ import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Subscription } from "rxjs/internal/Subscription";
 import { switchMap } from "rxjs/internal/operators/switchMap";
 import { throwError } from "rxjs/internal/observable/throwError";
-import { faChevronLeft, faUndo, faQuestion } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faUndo, faQuestion, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 import { appConfig } from "./../../app.config";
 import { ItemService } from "./../item/item.service";
@@ -34,8 +34,8 @@ export class UserComponent implements OnInit {
   public dateValid: boolean = false;
   public purchaseItem: Purchase;
   public faChevronLeft = faChevronLeft;
-  public faUndo = faUndo;
-  public faQuestion = faQuestion;
+  public faUndo: IconDefinition = faUndo;
+  public faQuestion: IconDefinition = faQuestion;
 
   constructor(
     private route: ActivatedRoute,

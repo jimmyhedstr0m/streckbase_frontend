@@ -1,1 +1,33 @@
-<p>users</p>
+<div *ngIf="lobare && xlobare" class="inner">
+  <div class="label">
+    Användare
+  </div>
+
+  <div class="title">
+    Lob
+  </div>
+  <ul class="list lobare">
+    <li *ngFor="let lobster of lobare" class="item">
+      <a [routerLink]="['/admin/users', lobster.id]">
+        <app-user-card [user]="lobster"></app-user-card>
+      </a>
+    </li>
+  </ul>
+
+  <div class="title">
+    Övriga
+  </div>
+  <ul class="list">
+    <li *ngFor="let xlobster of xlobare" class="item">
+      <a [routerLink]="['/admin/users', xlobster.id]">
+        <app-user-card [user]="xlobster"></app-user-card>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<app-action-bar [background]="true" position="right">
+  <app-button label="Lägg till" modifiers="primary">
+    <fa-icon [icon]="faUser" size="2x"></fa-icon>
+  </app-button>
+</app-action-bar>

@@ -1,5 +1,7 @@
 @import "src/assets/styles/_variables";
 
+$logoWidth: 160px;
+
 .container {
   display: flex;
   position: absolute;
@@ -10,7 +12,8 @@
 }
 
 .menu {
-  width: 25%;
+  width: calc(#{$logoWidth} + #{2 * size("gutter--huge")});
+  background-color: rgba(0, 0, 0, .1);
 }
 
 .content {

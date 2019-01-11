@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs/internal/Subscription";
 import { switchMap } from "rxjs/operators";
 import { throwError } from "rxjs/internal/observable/throwError";
-import { faChevronLeft, faCocktail } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faCocktail, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 import { appConfig } from "./../../app.config";
 import { environment } from "./../../../environments/environment";
@@ -17,8 +17,8 @@ import { Item } from "../../types/item";
 })
 export class ItemComponent implements OnInit, OnDestroy {
   private routeSubscription: Subscription;
-  public faChevronLeft = faChevronLeft;
-  public faCocktail = faCocktail;
+  public faChevronLeft: IconDefinition = faChevronLeft;
+  public faCocktail: IconDefinition = faCocktail;
   private timer: any;
   public item: Item;
   public showErrorModal: boolean = false;
