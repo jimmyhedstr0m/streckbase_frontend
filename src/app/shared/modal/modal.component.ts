@@ -47,7 +47,7 @@ export class ModalComponent implements OnChanges {
   }
 
   outsideClick(event: Event) {
-    if (this.allowOutsideClick) {
+    if (this.allowOutsideClick || this.cancelable) {
       this.confirmClick(event);
     }
   }

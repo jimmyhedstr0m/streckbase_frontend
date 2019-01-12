@@ -1,5 +1,22 @@
-@import "variables";
+@import "./variables";
 
-input.ng-invalid {
-  border-color: color("danger");
+.form-group {
+  &:not(:last-child) {
+    margin-bottom: size("gutter");
+  }
+
+  label {
+    display: flex;
+    flex-direction: column-reverse;
+
+    input:required + span:after {
+      content: "*";
+      color: red;
+      margin-left: 4px;
+    }
+
+    span {
+      display: block;
+    }
+  } 
 }

@@ -26,36 +26,47 @@
   </ul>
 </div>
 
-<app-action-bar [background]="true" position="right" (click)="onNewClick()">
+<app-action-bar [background]="true" position="right" (click)="toggleNewModal()">
   <app-button label="Lägg till" modifiers="primary">
     <fa-icon [icon]="faUser" size="2x"></fa-icon>
   </app-button>
 </app-action-bar>
 
-<app-modal title="Lägg till användare" [(show)]="showNewModal" [includeFooter]="false">
+<app-modal title="Lägg till användare" (action)="toggleNewModal()" [(show)]="showNewModal" [includeFooter]="false"
+  [allowOutsideClick]="false" [cancelable]="true">
   <form [formGroup]="userForm" (ngSubmit)="submit()">
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <label for="firstname">Förnamn</label>
-          <input type="text" class="form-control" id="firstname" formControlName="firstname" autocomplete="no" required>
+          <label for="firstname">
+            <input type="text" class="form-control" id="firstname" formControlName="firstname" autocomplete="no"
+              required>
+            <span>Förnamn</span>
+          </label>
         </div>
 
         <div class="form-group">
-          <label for="lastname">Efternamn</label>
-          <input type="text" class="form-control" id="lastname" formControlName="lastname" autocomplete="no" required>
+          <label for="lastname">
+            <input type="text" class="form-control" id="lastname" formControlName="lastname" autocomplete="no" required>
+            <span>Efternamn</span>
+          </label>
         </div>
 
         <div class="form-group">
-          <label for="id">Personnummer</label>
-          <input type="text" class="form-control" id="id" formControlName="id" autocomplete="no" required>
+          <label for="id">
+            <input type="text" class="form-control" id="id" formControlName="id" autocomplete="no" min-width="10"
+              max-width="10" placeholder="ÅÅMMDDXXXX" required>
+            <span>Personnummer</span>
+          </label>
         </div>
       </div>
 
       <div class="col">
         <div class="form-group">
-          <label for="email">E-mail</label>
-          <input type="text" class="form-control" id="email" formControlName="email" autocomplete="no" required>
+          <label for="email">
+            <input type="email" class="form-control" id="email" formControlName="email" autocomplete="no" required>
+            <span>E-mail</span>
+          </label>
         </div>
       </div>
     </div>
@@ -65,7 +76,11 @@
         <app-checkbox label="Lobare" formControlName="lobare"></app-checkbox>
       </div>
 
-      <app-button modifiers="normal" type="submit">Spara</app-button>
+      <app-button modifiers="normal" type="submit" [disabled]="userForm.invalid">Spara</app-button>
     </div>
   </form>
+</app-modal>
+
+<app-modal title="Säker?" [(show)]="showConfirm">
+  Stänga utan att spara?
 </app-modal>

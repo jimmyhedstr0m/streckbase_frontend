@@ -9,6 +9,7 @@ input {
 
 label {
   display: flex;
+  flex-direction: row;
   align-items: center;
 
   input + span {

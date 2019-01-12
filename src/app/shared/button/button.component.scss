@@ -54,7 +54,12 @@ $color: #fff;
     border-radius: 4px;
     transition: background-color .1s linear, border-color .1s linear;
 
-    &:hover {
+    &:disabled {
+      opacity: .2;
+      cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
       background-color: color("cool-red");
       border-color: color("cool-red");
     }

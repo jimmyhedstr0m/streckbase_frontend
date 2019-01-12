@@ -1,5 +1,5 @@
 <div class="block">
-  <button class="button" [ngClass]="modifiers" (click)="onClick($event)">
+  <button class="button" [ngClass]="modifiers" (click)="onClick($event)" [disabled]="disabled">
     <ng-content></ng-content>
   </button>
 
