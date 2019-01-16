@@ -3,15 +3,6 @@
 $cardWidth: 12.5%;
 $gutter: 2rem;
 
-// label {
-//   display: block;
-// }
-
-// input {
-//   padding: size("gutter--small");
-//   margin-top: size("gutter--mini");
-// }
-
 .inner {
   padding-bottom: size("footer");
 }
@@ -43,6 +34,14 @@ $gutter: 2rem;
   width: $cardWidth;
   padding: $gutter/2;
   flex: 0 0 auto;
+}
+
+.user {
+  cursor: pointer;
+  
+  &:hover {
+    opacity: .75;
+  }
 }
 
 .row {

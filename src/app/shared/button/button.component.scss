@@ -73,5 +73,6 @@ $color: #fff;
 }
 
 .label {
-  margin-top: .5rem;
+  margin-top: size("gutter--small");
+  text-shadow: 1px 1px 10px #000;
 }

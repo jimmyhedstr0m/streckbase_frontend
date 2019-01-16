@@ -3,7 +3,7 @@ import { faUser, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 import { UsersService } from "./users.service";
 import { User } from "./../../../types/user";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-admin-users",
@@ -11,17 +11,21 @@ import { FormGroup, FormControl } from "@angular/forms";
   styleUrls: ["./users.component.scss"]
 })
 export class UsersComponent implements OnInit {
+  private currentUser: User;
   public lobare: User[];
   public xlobare: User[];
   public faUser: IconDefinition = faUser;
-  public showNewModal: boolean = false;
+  public isNewUser: boolean = true;
+  public showUserModal: boolean = false;
   public loading: boolean = false;
+  public modalTitle: string;
   public userForm = new FormGroup({
     firstname: new FormControl(""),
     lastname: new FormControl(""),
-    id: new FormControl(""),
-    email: new FormControl(""),
-    lobare: new FormControl(true)
+    id: new FormControl("", Validators.pattern(/\d{10}/)),
+    email: new FormControl("", Validators.pattern(/^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$/)),
+    lobare: new FormControl(true),
+    debt: new FormControl({value: 0, disabled: true}, Validators.pattern(/\d+/))
   });
 
   constructor(private usersService: UsersService) { }
@@ -38,45 +42,63 @@ export class UsersComponent implements OnInit {
       });
   }
 
-  toggleNewModal() {
-    if (this.showNewModal) {
+  toggleUserModal() {
+    if (this.showUserModal) {
       this.userForm.reset();
+      this.currentUser = null;
+    } else {
+      this.userForm.get("debt").disable();
+      this.userForm.get("firstname").enable();
+      this.userForm.get("lastname").enable();
+      this.userForm.get("id").enable();
     }
 
-    this.showNewModal = !this.showNewModal;
+    this.showUserModal = !this.showUserModal;
+    this.isNewUser = this.showUserModal;
+  }
+
+  edit(user: User) {
+    this.isNewUser = false;
+    this.currentUser = user;
+    this.userForm.setValue({
+      firstname: user.firstname,
+      lastname: user.lastname,
+      id: user.id,
+      email: user.email,
+      lobare: user.lobare,
+      debt: user.debt
+    });
+    
+    this.userForm.get("debt").enable();
+    this.userForm.get("firstname").disable();
+    this.userForm.get("lastname").disable();
+    this.userForm.get("id").disable();
+    this.showUserModal = true;
   }
 
   submit() {
-    if (this.userForm.valid && !this.loading) {
+    if (this.userForm.valid && this.userForm.dirty && !this.loading) {
       this.loading = true;
-      const {
-        email,
-        firstname,
-        id,
-        lastname,
-        lobare,
-      } = this.userForm.value;
-
       const user: User = {
-        id,
-        firstname,
-        lastname,
-        email,
-        lobare,
-        debt: 0
-      }
+        ...this.currentUser,
+        ...this.userForm.value,
+        debt: this.userForm.value.debt ? parseInt(this.userForm.value.debt, 10) : null,
+        lobare: !!this.userForm.value.lobare
+      };
 
-      this.usersService.createUser(user)
+      this.usersService.updateUser(user, this.isNewUser)
         .subscribe(() => {
           this.getUsers();
           this.userForm.reset();
-          this.showNewModal = false;
+          this.showUserModal = false;
           this.loading = false;
         }, () => {
-          console.log("Some error occured creating user");
-          this.showNewModal = false;
+          console.log("Some error occured when handling user");
+          this.showUserModal = false;
           this.loading = false;
         });
+    } else {
+      this.showUserModal = false;
     }
   }
 

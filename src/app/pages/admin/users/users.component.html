@@ -8,9 +8,9 @@
   </div>
   <ul class="list lobare">
     <li *ngFor="let lobster of lobare" class="item">
-      <a [routerLink]="['/admin/users', lobster.id]">
+      <div class="user" (click)="edit(lobster)">
         <app-user-card [user]="lobster"></app-user-card>
-      </a>
+      </div>
     </li>
   </ul>
 
@@ -19,20 +19,20 @@
   </div>
   <ul class="list">
     <li *ngFor="let xlobster of xlobare" class="item">
-      <a [routerLink]="['/admin/users', xlobster.id]">
+      <div class="user" (click)="edit(xlobster)">
         <app-user-card [user]="xlobster"></app-user-card>
-      </a>
+      </div>
     </li>
   </ul>
 </div>
 
-<app-action-bar [background]="true" position="right" (click)="toggleNewModal()">
+<app-action-bar [background]="true" position="right" (click)="toggleUserModal()">
   <app-button label="Lägg till" modifiers="primary">
     <fa-icon [icon]="faUser" size="2x"></fa-icon>
   </app-button>
 </app-action-bar>
 
-<app-modal title="Lägg till användare" (action)="toggleNewModal()" [(show)]="showNewModal" [includeFooter]="false"
+<app-modal [title]="isNewUser ? 'Lägg till användare' : 'Redigera användare'" (action)="toggleUserModal()" [(show)]="showUserModal" [includeFooter]="false"
   [allowOutsideClick]="false" [cancelable]="true">
   <form [formGroup]="userForm" (ngSubmit)="submit()">
     <div class="row">
@@ -54,8 +54,7 @@
 
         <div class="form-group">
           <label for="id">
-            <input type="text" class="form-control" id="id" formControlName="id" autocomplete="no" min-width="10"
-              max-width="10" placeholder="ÅÅMMDDXXXX" required>
+            <input type="text" class="form-control" id="id" formControlName="id" autocomplete="no" placeholder="ÅÅMMDDXXXX" required>
             <span>Personnummer</span>
           </label>
         </div>
@@ -66,6 +65,13 @@
           <label for="email">
             <input type="email" class="form-control" id="email" formControlName="email" autocomplete="no" required>
             <span>E-mail</span>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="debt">
+            <input type="debt" class="form-control" id="debt" formControlName="debt" autocomplete="no">
+            <span>Skuld</span>
           </label>
         </div>
       </div>
@@ -79,8 +85,4 @@
       <app-button modifiers="normal" type="submit" [disabled]="userForm.invalid">Spara</app-button>
     </div>
   </form>
-</app-modal>
-
-<app-modal title="Säker?" [(show)]="showConfirm">
-  Stänga utan att spara?
 </app-modal>

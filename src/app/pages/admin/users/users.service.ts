@@ -14,7 +14,12 @@ export class UsersService {
     return this.http.get<User[]>(`${environment.apiUrl}/users?limit=1000`);
   }
 
-  createUser(user: User): Observable<User> {
-    return this.http.post<User>(`${environment.apiUrl}/users`, user);
+  updateUser(user: User, isNew: boolean): Observable<User> {
+    if (isNew) {
+      return this.http.post<User>(`${environment.apiUrl}/users`, user);
+    } else {
+      console.log('putte', user);
+      return this.http.put<User>(`${environment.apiUrl}/users`, user);
+    }
   }
 }

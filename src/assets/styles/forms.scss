@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column-reverse;
 
-    input:required + span:after {
+    input:required:not(:disabled) + span:after {
       content: "*";
       color: red;
       margin-left: 4px;

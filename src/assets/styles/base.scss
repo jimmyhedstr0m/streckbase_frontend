@@ -90,7 +90,12 @@ input {
   padding: size("gutter--small");
   margin-top: size("gutter--mini");
 
-  &:hover {
+  &:hover:not(:disabled) {
     border-color: color("text--dark");
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .4;
   }
 }
