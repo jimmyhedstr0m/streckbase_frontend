@@ -1,0 +1,23 @@
+@import "src/assets/styles/_variables";
+
+.container {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: color("background");
+}
+
+.login-box {
+  background-color: #fff;
+  padding: size("gutter");
+}
+
+.title {
+  font-size: 1.25em;
+  margin-top: 0px;
+}

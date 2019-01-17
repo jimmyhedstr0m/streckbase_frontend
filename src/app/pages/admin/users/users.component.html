@@ -39,7 +39,7 @@
       <div class="col">
         <div class="form-group">
           <label for="firstname">
-            <input type="text" class="form-control" id="firstname" formControlName="firstname" autocomplete="no"
+            <input type="text" class="form-control" id="firstname" formControlName="firstname" autocomplete="off"
               required>
             <span>Förnamn</span>
           </label>
@@ -47,30 +47,38 @@
 
         <div class="form-group">
           <label for="lastname">
-            <input type="text" class="form-control" id="lastname" formControlName="lastname" autocomplete="no" required>
+            <input type="text" class="form-control" id="lastname" formControlName="lastname" autocomplete="off" required>
             <span>Efternamn</span>
           </label>
         </div>
 
         <div class="form-group">
-          <label for="id">
-            <input type="text" class="form-control" id="id" formControlName="id" autocomplete="no" placeholder="ÅÅMMDDXXXX" required>
-            <span>Personnummer</span>
-          </label>
-        </div>
+            <app-checkbox label="Lobare" formControlName="lobare"></app-checkbox>
+          </div>
+  
+          <div class="form-group">
+            <app-checkbox label="Admin" formControlName="admin"></app-checkbox>
+          </div>
       </div>
 
       <div class="col">
         <div class="form-group">
+          <label for="id">
+            <input type="text" class="form-control" id="id" formControlName="id" autocomplete="off" placeholder="ÅÅMMDDXXXX" required>
+            <span>Personnummer</span>
+          </label>
+        </div>
+
+        <div class="form-group">
           <label for="email">
-            <input type="email" class="form-control" id="email" formControlName="email" autocomplete="no" required>
+            <input type="email" class="form-control" id="email" formControlName="email" autocomplete="off" required>
             <span>E-mail</span>
           </label>
         </div>
 
         <div class="form-group">
           <label for="debt">
-            <input type="debt" class="form-control" id="debt" formControlName="debt" autocomplete="no">
+            <input type="debt" class="form-control" id="debt" formControlName="debt" autocomplete="off">
             <span>Skuld</span>
           </label>
         </div>
@@ -78,10 +86,6 @@
     </div>
 
     <div class="bottom-bar">
-      <div class="form-group">
-        <app-checkbox label="Lobare" formControlName="lobare"></app-checkbox>
-      </div>
-
       <app-button modifiers="normal" type="submit" [disabled]="userForm.invalid">Spara</app-button>
     </div>
   </form>

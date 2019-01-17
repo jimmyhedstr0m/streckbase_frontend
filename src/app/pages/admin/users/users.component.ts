@@ -25,6 +25,7 @@ export class UsersComponent implements OnInit {
     id: new FormControl("", Validators.pattern(/\d{10}/)),
     email: new FormControl("", Validators.pattern(/^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$/)),
     lobare: new FormControl(true),
+    admin: new FormControl(false),
     debt: new FormControl({value: 0, disabled: true}, Validators.pattern(/\d+/))
   });
 
@@ -66,6 +67,7 @@ export class UsersComponent implements OnInit {
       id: user.id,
       email: user.email,
       lobare: user.lobare,
+      admin: user.admin,
       debt: user.debt
     });
     

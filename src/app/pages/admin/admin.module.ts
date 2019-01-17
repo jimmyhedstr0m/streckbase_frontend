@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { AdminComponent } from "./admin.component";
 import { HistoryComponent } from "./history/history.component";
+import { LoginComponent } from "./login/login.component";
 import { ProductsComponent } from "./products/products.component";
 import { UsersComponent } from "./users/users.component";
 import { ComponentsModule } from "./../../components";
@@ -13,13 +14,15 @@ const routes: Routes = [
   {
     path: "",
     component: AdminComponent,
+    canActivate: [UsersService],
     children: [
       { path: "", redirectTo: "users", pathMatch: "full" },
       { path: "users", component: UsersComponent },
       { path: "products", component: ProductsComponent },
       { path: "history", component: HistoryComponent }
     ]
-  }
+  },
+  { path: "login", component: LoginComponent }
 ];
 
 @NgModule({
@@ -31,6 +34,7 @@ const routes: Routes = [
   declarations: [
     AdminComponent,
     HistoryComponent,
+    LoginComponent,
     ProductsComponent,
     UsersComponent
   ],

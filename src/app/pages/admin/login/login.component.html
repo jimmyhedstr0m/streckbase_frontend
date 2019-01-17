@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="login-box">
+    <h1 class="title">Logga in</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()" >
+      <div class="form-group">
+        <label for="id">Personnummer</label>
+        <input type="text" class="form-control" id="id" formControlName="id" autocomplete="off" placeholder="ÅÅMMDDXXXX">
+      </div>
+  
+      <app-button type="submit" modifiers="normal full" [disabled]="loginForm.invalid">Logga in</app-button>
+    </form>
+  </div>
+</div>

@@ -6,7 +6,6 @@ $borderRadius: $height / 2;
 $color: #fff;
 
 .block {
-  display: inline-block;
   text-align: center;
 }
 
@@ -70,6 +69,9 @@ $color: #fff;
     background-color: #fff;
   }
 
+  &.full {
+    width: 100%;
+  }
 }
 
 .label {
