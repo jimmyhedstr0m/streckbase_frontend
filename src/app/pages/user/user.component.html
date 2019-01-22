@@ -22,6 +22,7 @@
         <ul class="list">
           <li *ngFor="let purchase of user.purchases" class="item" [class.selected]="purchase === purchaseItem" (click)="selectPurchase(purchase)">
             <div class="name">
+              <span class="count">#{{ purchase.totalCount }}</span>
               {{ purchase.item.name }}
             </div>
             <div class="event">
