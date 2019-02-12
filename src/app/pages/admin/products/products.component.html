@@ -1,1 +1,103 @@
-<p>products TODO</p>
+<div class="inner">
+  <div class="label">
+    Produkter
+  </div>
+  <input appAutofocus class="filter" [(ngModel)]="query" (keyup)="filter()" placeholder="Filtrera" />
+
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Namn</th>
+      <th>Pris</th>
+    </tr>
+    <tr *ngFor="let item of items" (click)="edit(item)">
+      <td>{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.price }}kr</td>
+    </tr>
+  </table>
+
+  <div class="no-results" *ngIf="items.length === 0">
+    Inga resultat
+  </div>
+</div>
+
+<app-action-bar [background]="true" position="right" (click)="toggleItemModal()">
+  <app-button label="Lägg till" modifiers="primary">
+    <fa-icon [icon]="faPlus" size="2x"></fa-icon>
+  </app-button>
+</app-action-bar>
+
+<app-modal [title]="isNewItem ? 'Lägg till produkt' : 'Redigera produkt'" (action)="toggleItemModal()"
+  [(show)]="showItemModal" [includeFooter]="false" [allowOutsideClick]="false" [cancelable]="true">
+  <form [formGroup]="itemForm" (ngSubmit)="submit()">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="name">
+            <input type="text" class="form-control" id="name" formControlName="name" autocomplete="off" required>
+            <span>Namn</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="price">
+            <input type="text" class="form-control" id="price" formControlName="price" autocomplete="off" required>
+            <span>Pris (kr)</span>
+          </label>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="alcohol">
+            <input type="text" class="form-control" id="alcohol" formControlName="alcohol" autocomplete="off">
+            <span>Alkoholhalt (%)</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="volume">
+            <input type="text" class="form-control" id="volume" formControlName="volume" autocomplete="off">
+            <span>Volym (cl)</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="barcodes">
+            <input type="text" class="form-control" id="barcodes" formControlName="barcodes" autocomplete="off"
+              required>
+            <span>Streckkoder (kommaseparerade EAN-13)</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="imageUrl">
+            <input type="url" class="form-control" id="imageUrl" formControlName="imageUrl" autocomplete="off">
+            <span>Bildlänk</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-bar">
+      <app-button *ngIf="!isNewItem" class="remove" modifiers="normal">Ta bort produkt</app-button>
+      <app-button modifiers="normal" type="submit" [disabled]="itemForm.invalid">Spara</app-button>
+    </div>
+  </form>
+</app-modal>

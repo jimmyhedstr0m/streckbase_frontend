@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { faUser, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 import { UsersService } from "./users.service";
 import { User } from "./../../../types/user";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-admin-users",

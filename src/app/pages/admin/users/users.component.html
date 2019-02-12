@@ -32,8 +32,8 @@
   </app-button>
 </app-action-bar>
 
-<app-modal [title]="isNewUser ? 'Lägg till användare' : 'Redigera användare'" (action)="toggleUserModal()" [(show)]="showUserModal" [includeFooter]="false"
-  [allowOutsideClick]="false" [cancelable]="true">
+<app-modal [title]="isNewUser ? 'Lägg till användare' : 'Redigera användare'" (action)="toggleUserModal()"
+  [(show)]="showUserModal" [includeFooter]="false" [allowOutsideClick]="false" [cancelable]="true">
   <form [formGroup]="userForm" (ngSubmit)="submit()">
     <div class="row">
       <div class="col">
@@ -47,24 +47,26 @@
 
         <div class="form-group">
           <label for="lastname">
-            <input type="text" class="form-control" id="lastname" formControlName="lastname" autocomplete="off" required>
+            <input type="text" class="form-control" id="lastname" formControlName="lastname" autocomplete="off"
+              required>
             <span>Efternamn</span>
           </label>
         </div>
 
         <div class="form-group">
-            <app-checkbox label="Lobare" formControlName="lobare"></app-checkbox>
-          </div>
-  
-          <div class="form-group">
-            <app-checkbox label="Admin" formControlName="admin"></app-checkbox>
-          </div>
+          <app-checkbox label="Lobare" formControlName="lobare"></app-checkbox>
+        </div>
+
+        <div class="form-group">
+          <app-checkbox label="Admin" formControlName="admin"></app-checkbox>
+        </div>
       </div>
 
       <div class="col">
         <div class="form-group">
           <label for="id">
-            <input type="text" class="form-control" id="id" formControlName="id" autocomplete="off" placeholder="ÅÅMMDDXXXX" required>
+            <input type="text" class="form-control" id="id" formControlName="id" autocomplete="off"
+              placeholder="ÅÅMMDDXXXX" required>
             <span>Personnummer</span>
           </label>
         </div>
@@ -78,8 +80,8 @@
 
         <div class="form-group">
           <label for="debt">
-            <input type="debt" class="form-control" id="debt" formControlName="debt" autocomplete="off">
-            <span>Skuld</span>
+            <input type="text" class="form-control" id="debt" formControlName="debt" autocomplete="off">
+            <span>Skuld (kr)</span>
           </label>
         </div>
       </div>

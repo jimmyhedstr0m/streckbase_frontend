@@ -15,7 +15,7 @@ export class UsersService implements CanActivate {
 
   canActivate(): boolean {
     const user: User = JSON.parse(sessionStorage.getItem(this.storageKey));
-    if (!user || (this.currentUser && this.currentUser.id !== user.id)) {
+    if (!user || (this.currentUser && this.currentUser.id !== user.id)) {
       this.router.navigate(["/admin/login"]);
       return false;
     }
@@ -25,7 +25,7 @@ export class UsersService implements CanActivate {
 
   setLoggedInUser(user: User) {
     this.currentUser = user;
-    sessionStorage.setItem(this.storageKey, JSON.stringify(user));    
+    sessionStorage.setItem(this.storageKey, JSON.stringify(user));
   }
 
   getUser(userId: string): Observable<User> {
@@ -40,8 +40,7 @@ export class UsersService implements CanActivate {
     if (isNew) {
       return this.http.post<User>(`${environment.apiUrl}/users`, user);
     } else {
-      console.log('putte', user);
-      return this.http.put<User>(`${environment.apiUrl}/users`, user);
+      return this.http.put<User>(`${environment.apiUrl}/users/${user.id}`, user);
     }
   }
 }

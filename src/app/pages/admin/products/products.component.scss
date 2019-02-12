@@ -1,3 +1,75 @@
-p {
-  color: red;
+@import "src/assets/styles/_variables";
+
+$cardWidth: 12.5%;
+$gutter: 2rem;
+
+.row {
+  &:not(:last-child) {
+    margin-bottom: size("gutter");
+  }
+}
+
+.inner {
+  padding-bottom: size("footer");
+}
+
+.label {
+  color: color("cool-red");
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 4px;
+}
+
+td, th {
+  border: 1px solid color("border");
+  text-align: left;
+  padding: 8px;
+}
+
+tr {
+  transition: background-color .1s linear, color .1s linear;
+
+  &:hover {
+    background-color: #fff;
+    color: color("background");
+    cursor: pointer;
+  }
+
+  &:nth-child(even):not(:hover) {
+    background-color: lighten(color("background"), 2%);
+  }
+}
+
+.filter {
+  color: #fff;
+  background-color: color("background");
+  margin-bottom: size("gutter");
+  width: 100%;
+  border-radius: 4px;
+}
+
+.no-results {
+  margin-top: size("gutter");
+}
+
+.bottom-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: size("gutter--huge");
+}
+
+.remove {
+  margin-right: size("gutter");
 }

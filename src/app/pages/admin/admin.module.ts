@@ -8,6 +8,7 @@ import { ProductsComponent } from "./products/products.component";
 import { UsersComponent } from "./users/users.component";
 import { ComponentsModule } from "./../../components";
 import { SharedModule } from "./../../shared";
+import { ProductsService } from "./products/products.service";
 import { UsersService } from "./users/users.service";
 
 const routes: Routes = [
@@ -39,6 +40,7 @@ const routes: Routes = [
     UsersComponent
   ],
   providers: [
+    ProductsService,
     UsersService
   ]
 })

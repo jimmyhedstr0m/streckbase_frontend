@@ -61,7 +61,7 @@
 
 <app-hidden-input (onValueChange)="buy($event)"></app-hidden-input>
 
-<app-modal title="Hög skuld!" [(show)]="showDebtWarning">
+<app-modal [allowOutsideClick]="false" title="Hög skuld!" [(show)]="showDebtWarning">
   Din skuld är hög. Överväg att betala av snarast
 </app-modal>
 
