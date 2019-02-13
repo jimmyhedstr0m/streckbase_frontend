@@ -23,10 +23,10 @@ export class UsersComponent implements OnInit {
     firstname: new FormControl(""),
     lastname: new FormControl(""),
     id: new FormControl("", Validators.pattern(/\d{10}/)),
-    email: new FormControl("", Validators.pattern(/^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$/)),
+    email: new FormControl("", Validators.email),
     lobare: new FormControl(true),
     admin: new FormControl(false),
-    debt: new FormControl({value: 0, disabled: true}, Validators.pattern(/\d+/))
+    debt: new FormControl({ value: 0, disabled: true }, Validators.pattern(/\d+/))
   });
 
   constructor(private usersService: UsersService) { }
@@ -70,7 +70,7 @@ export class UsersComponent implements OnInit {
       admin: user.admin,
       debt: user.debt
     });
-    
+
     this.userForm.get("debt").enable();
     this.userForm.get("firstname").disable();
     this.userForm.get("lastname").disable();
