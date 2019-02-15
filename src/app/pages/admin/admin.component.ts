@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component } from "@angular/core";
 import { faTh, faListUl, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 import { Link } from "./../../components/menu/link";
@@ -8,7 +8,7 @@ import { Link } from "./../../components/menu/link";
   templateUrl: "./admin.component.html",
   styleUrls: ["./admin.component.scss"]
 })
-export class AdminComponent implements OnInit, OnDestroy {
+export class AdminComponent {
   public links: Link[] = [
     {
       icon: faUsers,
@@ -20,21 +20,13 @@ export class AdminComponent implements OnInit, OnDestroy {
       label: "Produkter",
       route: "/admin/products"
     },
-    {
-      icon: faListUl,
-      label: "Historik",
-      route: "/admin/history"
-    }
+    // {
+    //   icon: faListUl,
+    //   label: "Historik",
+    //   route: "/admin/history"
+    // }
   ];
 
   constructor() { }
-
-  ngOnInit() {
-
-  }
-
-  ngOnDestroy() {
-
-  }
 
 }

@@ -30,7 +30,7 @@ function ValidateBarcodes(c: AbstractControl) {
 export class ProductsComponent implements OnInit {
   private currentItem: Item;
   private allItems: Item[] = [];
-  public items: Item[] = [];
+  public items: Item[];
   public faPlus: IconDefinition = faPlus;
   public query: string;
   public isNewItem: boolean = true;
@@ -42,13 +42,13 @@ export class ProductsComponent implements OnInit {
     volume: new FormControl("", Validators.pattern(/\d+/)),
     alcohol: new FormControl(""),
     barcodes: new FormControl("", [Validators.required, ValidateBarcodes]),
-    imageUrl: new FormControl("")
+    imageUrl: new FormControl({ value: "", disabled: true})
   });
 
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
-    // this.getItems(); // TODO
+    this.getItems();
   }
 
   private getItems() {
@@ -68,11 +68,8 @@ export class ProductsComponent implements OnInit {
   }
 
   toggleItemModal() {
-    if (this.showItemModal) {
-      this.itemForm.reset();
-      this.currentItem = null;
-    }
-
+    this.currentItem = null;
+    this.itemForm.reset();
     this.showItemModal = !this.showItemModal;
     this.isNewItem = this.showItemModal;
   }

@@ -19,7 +19,6 @@ export class ProductsService {
     if (isNew) {
       return this.http.post<Item>(`${environment.apiUrl}/items`, item);
     } else {
-      console.log('putte', item);
       return this.http.put<Item>(`${environment.apiUrl}/items/${item.id}`, item);
     }
   }

@@ -37,7 +37,7 @@ td, th {
   padding: 8px;
 }
 
-tr {
+tbody tr {
   transition: background-color .1s linear, color .1s linear;
 
   &:hover {
