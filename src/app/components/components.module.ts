@@ -8,8 +8,6 @@ import { FeedComponent } from "./feed/feed.component";
 import { HeaderComponent } from "./header/header.component";
 import { MenuComponent } from "./menu/menu.component";
 
-import { FeedService } from "./feed/feed.service";
-
 @NgModule({
   declarations: [
     ClockComponent,
@@ -22,7 +20,7 @@ import { FeedService } from "./feed/feed.service";
     SharedModule
   ],
   providers: [
-    FeedService
+
   ],
   exports: [
     ClockComponent,

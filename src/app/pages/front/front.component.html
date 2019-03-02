@@ -2,7 +2,7 @@
   <div class="content-container">
     <div class="feed">
       <div class="list">
-        <app-feed></app-feed>
+        <app-feed [feed]="feed"></app-feed>
       </div>
     </div>
 
@@ -12,7 +12,43 @@
       </div>
     </div>
 
-    <div class="fill"></div>
+    <div class="highscore">
+      <!-- <ul *ngIf="highscoreUsers" class="highscore-list">
+        <li *ngFor="let user of highscoreUsers" class="item">
+          <div>
+            {{ user.debt }} kr
+          </div>
+          <div class="bar"></div>
+          <div class="">
+            {{ user.firstname }} {{ user.lastname }}
+          </div>
+        </li>
+      </ul> -->
+      <div *ngIf="highscoreUsers" class="content">
+        <div class="title">Månadens highscore</div>
+
+        <table class="highscore-list">
+          <tbody>
+            <tr *ngFor="let user of highscoreUsers; let i = index" class="table-row">
+              <td>
+                <div *ngIf="i === 0" class="trophy">
+                  <fa-icon [icon]="faTrophy" size="1x"></fa-icon>
+                </div>
+              </td>
+              <td class="name" [class.highlight]="i === 0">
+                {{ user.firstname }} {{ user.lastname }}
+              </td>
+              <td class="bar">
+                <div *ngIf="highscoreUsers[0].debt > 0" class="bar-overlay"
+                  [style.transform]="'scaleX('+ (highscoreUsers[0].debt - user.debt)/(highscoreUsers[0].debt) +')'">
+                </div>
+              </td>
+              <td class="debt">{{ user.debt }} kr</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
 </div>

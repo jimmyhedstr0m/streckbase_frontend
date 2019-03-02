@@ -15,6 +15,7 @@ import { AddService } from "./add/add.service";
 import { ItemService } from "./item/item.service";
 import { UserService } from "./user/user.service";
 import { UsersService } from "./users/users.service";
+import { FrontService } from "./front/front.service";
 
 const routes: Routes = [
   { path: "", component: FrontComponent },
@@ -47,6 +48,7 @@ const routes: Routes = [
   ],
   providers: [
     AddService,
+    FrontService,
     ItemService,
     UserService,
     UsersService
