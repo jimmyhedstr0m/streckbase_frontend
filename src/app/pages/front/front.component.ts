@@ -34,7 +34,6 @@ export class FrontComponent implements OnInit, OnDestroy {
       )
       .subscribe((highscoreUsers: User[]) => {
         this.highscoreUsers = highscoreUsers;
-        console.log(this.highscoreUsers);
       });
   }
 
