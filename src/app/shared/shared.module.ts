@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { PrettyDatePipe } from "./pretty-date.pipe";
+import { PrettyPricePipe } from "./pretty-price.pipe";
 
 import { AutofocusDirective } from "./auto-focus.directive";
 
@@ -35,6 +36,7 @@ import { ModalService } from "./modal/modal.service";
     ModalContainerComponent,
     ModalComponent,
     PrettyDatePipe,
+    PrettyPricePipe,
     SpinnerComponent,
     UserCardComponent,
     WrapperComponent
@@ -52,6 +54,7 @@ import { ModalService } from "./modal/modal.service";
     ModalContainerComponent,
     ModalComponent,
     PrettyDatePipe,
+    PrettyPricePipe,
     SpinnerComponent,
     UserCardComponent,
     WrapperComponent

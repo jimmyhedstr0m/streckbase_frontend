@@ -12,7 +12,8 @@
           {{user.firstname}} {{user.lastname}}
         </div>
         <div class="debt">
-          Skuld: {{user.debt}} kr
+          <span class="current-debt">Skuld: {{user.debt | prettyPrice}}</span>
+          <span class="total-debt">Totalt: {{user.totalDebt | prettyPrice}}</span>
         </div>
       </div>
     </div>
@@ -30,7 +31,7 @@
                 {{ purchase.date | prettyDate }}
               </span>
               <span class="price">
-                {{purchase.item.price}} kr
+                {{purchase.item.price | prettyPrice}}
               </span>
             </div>
           </li>

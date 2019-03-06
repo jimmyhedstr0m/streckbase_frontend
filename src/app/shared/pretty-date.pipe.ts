@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from "@angular/core";
 import * as distanceInWords from "date-fns/distance_in_words"
 import * as svLocale from "date-fns/locale/sv";
 

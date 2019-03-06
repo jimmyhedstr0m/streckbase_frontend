@@ -10,7 +10,7 @@
           {{ item.name }}
         </div>
 
-        <div class="price">{{ item.price | currency: "SEK": "symbol":"1.0-0" }}</div>
+        <div class="price">{{ item.price | prettyPrice }}</div>
       </div>
 
       <div class="column right">

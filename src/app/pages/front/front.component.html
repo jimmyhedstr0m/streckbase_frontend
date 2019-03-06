@@ -13,17 +13,6 @@
     </div>
 
     <div class="highscore">
-      <!-- <ul *ngIf="highscoreUsers" class="highscore-list">
-        <li *ngFor="let user of highscoreUsers" class="item">
-          <div>
-            {{ user.debt }} kr
-          </div>
-          <div class="bar"></div>
-          <div class="">
-            {{ user.firstname }} {{ user.lastname }}
-          </div>
-        </li>
-      </ul> -->
       <div *ngIf="highscoreUsers" class="content">
         <div class="title">Månadens highscore</div>
 
@@ -43,7 +32,7 @@
                   [style.transform]="'scaleX('+ (highscoreUsers[0].debt - user.debt)/(highscoreUsers[0].debt) +')'">
                 </div>
               </td>
-              <td class="debt">{{ user.debt }} kr</td>
+              <td class="debt">{{ user.debt | prettyPrice }}</td>
             </tr>
           </tbody>
         </table>

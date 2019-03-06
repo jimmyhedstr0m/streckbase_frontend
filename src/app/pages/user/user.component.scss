@@ -20,7 +20,6 @@ $gutter: 2rem;
 .label {
   color: color("cool-red");
   font-size: 1.5rem;
-  margin-bottom: .5rem;
 }
 
 .count {
@@ -42,9 +41,22 @@ $gutter: 2rem;
 }
 
 .debt {
-  margin-top: .25rem;
-  font-size: 1.25em;
-  color: color("text--dark");
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: .5rem;
+  
+  .current-debt {
+    font-size: 1.25em;
+    line-height: 1;
+    color: color("text--muted");
+    margin-right: 1ch;
+  }
+  
+  .total-debt {
+    font-size: .875rem;
+    color: color("text--dark");
+  }
 }
 
 .left-column {
