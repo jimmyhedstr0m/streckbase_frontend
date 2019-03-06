@@ -1,0 +1,22 @@
+<div *ngIf="users" class="title">Månadens highscore</div>
+
+<table *ngIf="users" class="highscore-list">
+  <tbody>
+    <tr *ngFor="let user of users; let i = index" class="table-row">
+      <td>
+        <div *ngIf="i === 0" class="trophy">
+          <fa-icon [icon]="faTrophy" size="1x"></fa-icon>
+        </div>
+      </td>
+      <td class="name" [class.highlight]="i === 0">
+        {{ user.firstname }} {{ user.lastname }}
+      </td>
+      <td class="bar">
+        <div *ngIf="users[0].debt > 0" class="bar-overlay"
+          [style.transform]="'scaleX('+ (users[0].debt - user.debt)/(users[0].debt) +')'">
+        </div>
+      </td>
+      <td class="debt">{{ user.debt | prettyPrice }}</td>
+    </tr>
+  </tbody>
+</table>

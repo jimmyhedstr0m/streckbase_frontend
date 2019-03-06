@@ -6,6 +6,7 @@ import { SharedModule } from "./../shared";
 import { ClockComponent } from "./clock/clock.component";
 import { FeedComponent } from "./feed/feed.component";
 import { HeaderComponent } from "./header/header.component";
+import { HighscoreComponent } from "./highscore/highscore.component";
 import { MenuComponent } from "./menu/menu.component";
 
 @NgModule({
@@ -13,6 +14,7 @@ import { MenuComponent } from "./menu/menu.component";
     ClockComponent,
     FeedComponent,
     HeaderComponent,
+    HighscoreComponent,
     MenuComponent
   ],
   imports: [
@@ -26,6 +28,7 @@ import { MenuComponent } from "./menu/menu.component";
     ClockComponent,
     FeedComponent,
     HeaderComponent,
+    HighscoreComponent,
     MenuComponent
   ]
 })

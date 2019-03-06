@@ -1,0 +1,80 @@
+@import "src/assets/styles/_variables";
+
+$barHeight: 1.5rem;
+
+.list-label {
+  font-size: 1em;
+  color: color("background");
+  font-weight: bold;
+  margin-bottom: size("gutter--mini");
+}
+
+.price-row {
+  margin-top: 1rem;
+}
+
+.highscore-list {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 size("gutter--small");
+  padding-right: size("gutter--huge");
+  padding-top: size("gutter--small");
+}
+
+.item {
+  display: flex;
+}
+
+.title {
+  padding-bottom: size("gutter--small");
+  margin-right: size("gutter--huge");
+  margin-left: size("gutter--large");
+  border-bottom: 1px solid #32383D;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.trophy {
+  color: color("cool-red");
+  padding-right: size("gutter--mini");
+}
+
+.debt {
+  white-space: nowrap;
+  padding-left: size("gutter");
+  color: color("light-grey");
+  font-size: .875rem;
+}
+
+.bar {
+  position: relative;
+  height: $barHeight;
+  width: 100%;
+  background-color: color("border");
+  margin-left: size("gutter--small");
+  margin-right: size("gutter--small");
+  padding: 0;
+  background-image: linear-gradient(to right, color("cool-red"), color("purple"));
+}
+
+.bar-overlay {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: $barHeight;
+  top: 0;
+  left: 0;
+  background-color: color("border");
+  transform-origin: 100% 50%;
+}
+
+.name {
+  white-space: nowrap;
+  padding-right: size("gutter");
+  font-size: .875rem;
+
+  &.highlight {
+    color: color("cool-red");
+    font-weight: bold;
+  }
+}
