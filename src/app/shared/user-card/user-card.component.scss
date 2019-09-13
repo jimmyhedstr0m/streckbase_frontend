@@ -5,22 +5,6 @@
   width: 100%;
   padding-top: 100%;
   box-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.1);
-  // backface-visibility: hidden;
-  // transform: translateZ(0);
-  // perspective: 1000;
-
-  // &:before {
-  //   position: absolute;
-  //   width: 100%;
-  //   height: 10%;
-  //   content: "";
-  //   bottom: 0;
-  //   left: -5%;
-  //   transform: skew(45deg);
-  //   z-index: -1;
-  //   opacity: .3;
-  //   // transform: translateZ(0);
-  // }
 
   &:after {
     position: absolute;
@@ -28,7 +12,6 @@
     height: 20%;
     left: 0;
     content: "";
-    // transform: translateZ(0);
   }
 }
 
@@ -43,19 +26,6 @@
   top: 0;
   font-weight: bold;
   overflow: hidden;
-  // transform: translateZ(0);
-  
-  // &:after {
-  //   position: absolute;
-  //   top: -5%;
-  //   right: -15%;
-  //   content: "";
-  //   width: 50%;
-  //   height: 120%;
-  //   transform: rotate(10deg);
-  //   background-image: linear-gradient(to bottom, rgba(255, 255, 255, .05) 0%, transparent 70%);
-  //   z-index: 0;
-  // }
 }
 
 .icon {
@@ -158,4 +128,25 @@
     }
   }
 
+}
+
+.heat {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  right: 4px;
+  bottom: -12px;
+  border-radius: 99999px;
+
+  &.neutral {
+    background-color: color("neutral");
+  }
+
+  &.warning {
+    background-color: color("warning");
+  }
+
+  &.danger {
+    background-color: color("danger");
+  }
 }

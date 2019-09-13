@@ -4,5 +4,6 @@
       {{user.firstname.charAt(0)}} {{user.lastname.charAt(0)}}
     </div>
   </div>
+  <div *ngIf="showHeat" class="heat" [ngClass]="getHeatClass()"></div>
 </div>
 <div *ngIf="user && includeName" class="name">{{user.firstname}} {{user.lastname}}</div>
