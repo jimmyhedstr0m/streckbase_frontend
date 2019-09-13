@@ -65,6 +65,16 @@ $color: #fff;
     }
   }
 
+  &.danger {
+    background-color: color("cool-red");
+    border-color: color("cool-red");
+
+    &:hover {
+      background-color: darken(color("cool-red"), 10%) !important;
+      border-color: darken(color("cool-red"), 10%) !important;
+    }
+  }
+
   &.light {
     color: color("background");
     background-color: #fff;

@@ -115,4 +115,18 @@ export class ProductsComponent implements OnInit {
     }
   }
 
+  delete($event: any) {
+    $event.preventDefault();
+    this.productsService.deleteItem(this.currentItem)
+      .subscribe(() => {
+        this.getItems();
+        this.showItemModal = false;
+        this.loading = false;
+      }, () => {
+        console.log("Some error occured when handling item");
+        this.showItemModal = false;
+        this.loading = false;
+      });
+  }
+
 }

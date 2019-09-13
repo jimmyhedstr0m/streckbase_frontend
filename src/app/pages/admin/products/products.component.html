@@ -98,7 +98,7 @@
     </div>
 
     <div class="bottom-bar">
-      <!-- <app-button *ngIf="!isNewItem" class="remove" modifiers="normal">Ta bort produkt</app-button> -->
+      <app-button *ngIf="!isNewItem" class="remove" modifiers="normal danger" (click)="delete($event)">Ta bort produkt</app-button>
       <app-button modifiers="normal" type="submit" [disabled]="itemForm.invalid">Spara</app-button>
     </div>
   </form>

@@ -22,4 +22,8 @@ export class ProductsService {
       return this.http.put<Item>(`${environment.apiUrl}/items/${item.id}`, item);
     }
   }
+
+  deleteItem(item: Item): Observable<Item> {
+    return this.http.delete<Item>(`${environment.apiUrl}/items/${item.id}`);
+  }
 }
