@@ -5,12 +5,12 @@ import { faPlus, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { ProductsService } from "./products.service";
 import { Item } from "./../../../types/item";
 
-const EAN_13: RegExp = /\d{13}/;
+const EAN_7: RegExp = /\d{7}/;
 
 function ValidateBarcodes(c: AbstractControl) {
   if (c && c.value) {
     const array = c.value.split(",");
-    const valid: boolean = array.every((value: string) => EAN_13.test(value) && value.trim().length === 13);
+    const valid: boolean = array.every((value: string) => EAN_7.test(value) && value.trim().length >= 7);
 
     if (!valid) {
       return {
